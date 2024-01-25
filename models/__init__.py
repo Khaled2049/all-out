@@ -1,0 +1,1 @@
+from models.climbs import ClimbModel
