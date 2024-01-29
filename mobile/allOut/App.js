@@ -1,55 +1,28 @@
-// import { StatusBar } from 'expo-status-bar';
-// import { StyleSheet, Text, View } from 'react-native';
+// In App.js in a new project
 
-// export default function App() {
-//   return (
-//     <View style={styles.container}>
-//       <Text>Open up App.js to start working on your app!</Text>
-//       <StatusBar style="auto" />
-//     </View>
-//   );
-// }
+import * as React from "react";
+import { View, Text } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
+import HomeScreen from "./src/screens/Home";
+import HiikeScreen from "./src/screens/HikeScreen";
+import MapScreen from "./src/screens/MapScreen";
+import ClimbsScreen from "./src/screens/ClimbScreen";
 
-import React from "react";
-import { StyleSheet, View } from "react-native";
-import Mapbox from "@rnmapbox/maps";
+const Stack = createNativeStackNavigator();
 
-Mapbox.setAccessToken(
-  "pk.eyJ1Ijoia2hhbGVkMjA0OCIsImEiOiJjbHJqbnI2azQwNWRyMmtraXlzdWR3N2xoIn0.25oYJMrELC1s9VPPA60ndA"
-);
-
-const App = () => {
+function App() {
   return (
-    <View style={styles.page}>
-      <View style={styles.container}>
-        <Mapbox.MapView style={styles.map} />
-      </View>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Hikes" component={HiikeScreen} />
+        <Stack.Screen name="Climbs" component={ClimbsScreen} />
+        <Stack.Screen name="Map" component={MapScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-};
+}
 
 export default App;
-
-const styles = StyleSheet.create({
-  page: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  container: {
-    height: 300,
-    width: 300,
-  },
-  map: {
-    flex: 1,
-  },
-});
