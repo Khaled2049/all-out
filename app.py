@@ -6,9 +6,9 @@ import models
 import os
 import csv
 
+app = Flask(__name__)
+
 def create_app():
-    app = Flask(__name__)
-    
     app.config["PROPAGATE_EXCEPTIONS"] = True
     app.config["API_TITLE"] = "Climbing API"
     app.config["API_VERSION"] = "v1"
@@ -27,3 +27,11 @@ def create_app():
 
     api.register_blueprint(ClimbBlueprint)    
     return app
+
+@app.route('/')
+def test():
+    return "Test test test"
+
+if __name__ == '__main__':
+    create_app()
+    app.run(host="localhost", port=2020, debug=True)
