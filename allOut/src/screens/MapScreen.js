@@ -25,8 +25,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   container: {
-    height: 300,
-    width: 300,
+    ...StyleSheet.absoluteFillObject, // This makes the container take up the entire screen
   },
   map: {
     flex: 1,

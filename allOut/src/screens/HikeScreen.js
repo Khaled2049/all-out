@@ -20,6 +20,20 @@ const HikeScreen = () => {
     />
   );
 };
+{
+  /* <Button
+onPress={() => props.navigation.navigate("Hikes")}
+title="Hikes"
+></Button>
+<Button
+onPress={() => props.navigation.navigate("Climbs")}
+title="Climbs"
+></Button>
+<Button
+onPress={() => props.navigation.navigate("Map")}
+title="Map"
+></Button> */
+}
 
 const styles = StyleSheet.create({
   textStyle: {
