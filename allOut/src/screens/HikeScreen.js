@@ -1,24 +1,35 @@
 import React from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import { View, Text, StyleSheet, FlatList, TouchableOpacity } from "react-native";
+import hikes from '../../data/hikes.json';
+import TrailheadList from "../components/TrailheadList";
+
+
+
 
 const HikeScreen = () => {
-  const friends = [
-    { name: "Hike" },
-    { name: "Hike1" },
-    { name: "Hike2" },
-    { name: "Hike3" },
-    { name: "Hike4" },
-  ];
   return (
-    <FlatList
-      showsVerticalScrollIndicator={false}
-      data={friends}
-      renderItem={({ item }) => {
-        return <Text style={styles.textStyle}>{item.name}</Text>;
-      }}
-      keyExtractor={(friend) => friend.name}
-    />
+    <View style={styles.page}>
+      <TrailheadList trailheads={hikes} />
+    </View>
   );
+
+
+  // const renderItem = ({ item }) => (
+  //     <TouchableOpacity onPress={() => onTrailPress(item)}>
+  //     <View style={styles.row}>
+  //       <Text style={styles.trailheadName}>{item.properties.name}</Text>
+  //     </View>
+  //   </TouchableOpacity>
+  // );
+
+  // return (
+  //   <FlatList
+  //     data={hikes}
+  //     keyExtractor={(item) => item.id}
+  //     renderItem={renderItem}
+  //     style={styles.container}
+  //   />
+  // );
 };
 {
   /* <Button
@@ -38,6 +49,18 @@ title="Map"
 const styles = StyleSheet.create({
   textStyle: {
     marginVertical: 10, // Adjust margin as needed
+  },
+  container: {
+    padding: 16,
+  },
+  row: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+    paddingVertical: 12,
+  },
+  trailheadName: {
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
 
