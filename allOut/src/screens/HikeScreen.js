@@ -6,9 +6,15 @@ import TrailheadList from "../components/TrailheadList";
 
 const HikeScreen = () => {
   const hikes = useContext(HikeContext);
+
+  const onTrailPress = (selectedTrail) => {
+    // Handle the selected trail, if needed
+    console.log("Selected Trail:", selectedTrail);
+  };
+
   return (
     <View style={styles.page}>
-      <TrailheadList trailheads={hikes} />
+      <TrailheadList trailheads={hikes} onTrailPress={onTrailPress} />
     </View>
   );
 };

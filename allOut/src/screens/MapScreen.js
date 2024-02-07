@@ -1,30 +1,28 @@
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import Mapbox, { MarkerView } from "@rnmapbox/maps";
-import TrailheadList from "../components/TrailheadList";
+import { useRoute } from "@react-navigation/native";
 
 Mapbox.setAccessToken(
   "pk.eyJ1Ijoia2hhbGVkMjA0OCIsImEiOiJjbHJqbnI2azQwNWRyMmtraXlzdWR3N2xoIn0.25oYJMrELC1s9VPPA60ndA"
 );
 
 const MapScreen = () => {
-
-  const [selectedTrail, setSelectedTrail] = useState(null);
-
-  const handleTrailPress = (trail) => {
-    setSelectedTrail(trail);
-  };
+  const route = useRoute();
+  const { selectedTrail } = route.params || {};
 
   return (
     <View style={styles.page}>
       <View style={styles.container}>
         <Mapbox.MapView style={styles.map}>
           {selectedTrail && (
-            <MarkerView coordinate={selectedTrail.geometry.coordinates} title={selectedTrail.properties.name} />
+            <MarkerView
+              coordinate={selectedTrail.geometry.coordinates}
+              title={selectedTrail.properties.name}
+            />
           )}
         </Mapbox.MapView>
       </View>
-      <TrailheadList trailheads={hikes} onTrailPress={handleTrailPress} />
     </View>
   );
 };
