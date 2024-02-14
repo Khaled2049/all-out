@@ -1,11 +1,11 @@
-import React, { useRef, useEffect, useState, useContext } from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  Button,
-  PermissionsAndroid,
-} from "react-native";
+import React, {
+  useEffect,
+  useState,
+  useRef,
+  useContext,
+  useCallback,
+} from "react";
+import { View, Text, StyleSheet } from "react-native";
 import MapboxGL, { MarkerView } from "@rnmapbox/maps";
 import { useRoute } from "@react-navigation/native";
 import Geolocation from "react-native-geolocation-service";
@@ -46,8 +46,20 @@ const onTrailPress = (selectedTrail) => {
 };
 
 const MapScreen = () => {
-  const mapRef = useRef(null);
-  const cameraRef = useRef(null);
+  const cameraRef = useCallback((node) => {
+    // console.log("Node", node);
+    if (node && !Device.isDevice) {
+      node.setCamera({
+        centerCoordinate: [-106.10864, 37.75306],
+        zoomLevel: 5,
+      });
+    } else {
+      node.setCamera({
+        centerCoordinate: [location.coords.longitude, location.coords.latitude],
+        zoomLevel: 5,
+      });
+    }
+  }, []);
   const route = useRoute();
   const { selectedTrail } = route.params || {};
   const [location, setLocation] = useState(null);
@@ -58,7 +70,7 @@ const MapScreen = () => {
     const getLocation = async () => {
       setLoading(true);
       const result = await requestLocationPermission();
-      if (result) {
+      if (result && Device.isDevice) {
         Geolocation.getCurrentPosition(
           (position) => {
             setLocation(position);
@@ -72,6 +84,9 @@ const MapScreen = () => {
           { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
         );
       } else {
+        console.log(
+          "Running on emulator or permission denied, not getting location"
+        );
         setLoading(false);
       }
     };
@@ -79,31 +94,15 @@ const MapScreen = () => {
     getLocation();
   }, []);
 
-  useEffect(() => {
-    if (location && mapRef.current) {
-      // if running on emulator, set the camera to Denver, CO
-      if (!Device.isDevice) {
-        cameraRef.current.setCamera({
-          centerCoordinate: [-106.10864, 37.75306],
-          zoomLevel: 5,
-          pitch: 4,
-        });
-      } else {
-        cameraRef.current.setCamera({
-          centerCoordinate: [
-            location.coords.longitude,
-            location.coords.latitude,
-          ],
-          zoomLevel: 5,
-        });
-      }
-    }
-  }, [location]);
-
   return (
     <View style={styles.page}>
+      {loading && (
+        <View style={styles.loadingContainer}>
+          <Text>Loading...</Text>
+        </View>
+      )}
       <View style={styles.container}>
-        <MapboxGL.MapView ref={mapRef} style={styles.map}>
+        <MapboxGL.MapView style={styles.map}>
           <MapboxGL.Camera ref={cameraRef} />
           {selectedTrail && (
             <MarkerView
@@ -116,12 +115,6 @@ const MapScreen = () => {
         </MapboxGL.MapView>
 
         <TrailheadList trailheads={hikes} onTrailPress={onTrailPress} />
-
-        {loading && (
-          <View style={styles.loadingContainer}>
-            <Text>Loading...</Text>
-          </View>
-        )}
       </View>
     </View>
   );
@@ -138,8 +131,15 @@ const styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
   },
+  listContainer: {
+    padding: 16,
+  },
   map: {
-    flex: 1,
+    flex: 0.75,
+  },
+  row: {
+    borderBottomWidth: 1,
+    borderBottomColor: "#ccc",
   },
   marker: {
     width: 20,

@@ -1,14 +1,8 @@
-import {
-  View,
-  Text,
-  FlatList,
-  StyleSheet,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import React, { useCallback, useMemo, useRef, useContext } from "react";
 import BottomSheet from "@gorhom/bottom-sheet";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { GestureHandlerRootView, FlatList } from "react-native-gesture-handler";
 
 const TrailheadList = ({ trailheads }) => {
   const navigation = useNavigation();
@@ -17,7 +11,7 @@ const TrailheadList = ({ trailheads }) => {
   const bottomSheetRef = useRef(null);
 
   // variables
-  const snapPoints = useMemo(() => ["25%", "100%"], []);
+  const snapPoints = useMemo(() => ["25%", "50%"], []);
 
   // callbacks
   const handleSheetChanges = useCallback((index) => {
@@ -38,23 +32,25 @@ const TrailheadList = ({ trailheads }) => {
   );
 
   return (
-    <GestureHandlerRootView style={styles.container}>
-      <BottomSheet
-        ref={bottomSheetRef}
-        index={1}
-        snapPoints={snapPoints}
-        onChange={handleSheetChanges}
-      >
-        <View style={styles.contentContainer}>
-          <FlatList
-            data={trailheads}
-            keyExtractor={(item) => item.id}
-            renderItem={renderItem}
-            style={styles.container}
-          />
-        </View>
-      </BottomSheet>
-    </GestureHandlerRootView>
+    <View style={styles.container}>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <BottomSheet
+          ref={bottomSheetRef}
+          index={1}
+          snapPoints={snapPoints}
+          onChange={handleSheetChanges}
+        >
+          <View style={styles.contentContainer}>
+            <FlatList
+              data={trailheads}
+              keyExtractor={(item) => item.id}
+              renderItem={renderItem}
+              style={styles.listContainer}
+            />
+          </View>
+        </BottomSheet>
+      </GestureHandlerRootView>
+    </View>
   );
 };
 
@@ -69,12 +65,17 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   container: {
-    flex: 0.25,
-    padding: 14,
+    ...StyleSheet.absoluteFillObject,
+    // height: "100%",
   },
   contentContainer: {
     flex: 1,
     alignItems: "center",
+  },
+  listContainer: {
+    padding: 16,
+    height: 40,
+    flexGrow: 1,
   },
 });
 

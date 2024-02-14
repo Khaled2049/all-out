@@ -35,16 +35,12 @@ const App = () => {
             }}
           />
           <Tab.Screen
-            name="Hikes"
-            component={HiikeScreen}
+            name="Map"
+            component={MapScreen}
             options={{
-              tabBarLabel: "Hiikes",
+              tabBarLabel: "Map",
               tabBarIcon: ({ color, size }) => (
-                <MaterialCommunityIcons
-                  name="hiking"
-                  color={color}
-                  size={size}
-                />
+                <MaterialCommunityIcons name="map" color={color} size={size} />
               ),
             }}
           />
@@ -59,16 +55,6 @@ const App = () => {
                   color={color}
                   size={size}
                 />
-              ),
-            }}
-          />
-          <Tab.Screen
-            name="Map"
-            component={MapScreen}
-            options={{
-              tabBarLabel: "Map",
-              tabBarIcon: ({ color, size }) => (
-                <MaterialCommunityIcons name="map" color={color} size={size} />
               ),
             }}
           />
