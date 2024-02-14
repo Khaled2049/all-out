@@ -1,4 +1,3 @@
-import React from "react";
 import {
   View,
   Text,
@@ -7,9 +6,23 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import React, { useCallback, useMemo, useRef, useContext } from "react";
+import BottomSheet from "@gorhom/bottom-sheet";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 const TrailheadList = ({ trailheads }) => {
   const navigation = useNavigation();
+
+  // ref
+  const bottomSheetRef = useRef(null);
+
+  // variables
+  const snapPoints = useMemo(() => ["25%", "100%"], []);
+
+  // callbacks
+  const handleSheetChanges = useCallback((index) => {
+    console.log("handleSheetChanges", index);
+  }, []);
 
   const onTrailPress = (item) => {
     // Navigate to MapScreen with the selected trail as a parameter
@@ -25,19 +38,27 @@ const TrailheadList = ({ trailheads }) => {
   );
 
   return (
-    <FlatList
-      data={trailheads}
-      keyExtractor={(item) => item.id}
-      renderItem={renderItem}
-      style={styles.container}
-    />
+    <GestureHandlerRootView style={styles.container}>
+      <BottomSheet
+        ref={bottomSheetRef}
+        index={1}
+        snapPoints={snapPoints}
+        onChange={handleSheetChanges}
+      >
+        <View style={styles.contentContainer}>
+          <FlatList
+            data={trailheads}
+            keyExtractor={(item) => item.id}
+            renderItem={renderItem}
+            style={styles.container}
+          />
+        </View>
+      </BottomSheet>
+    </GestureHandlerRootView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 16,
-  },
   row: {
     borderBottomWidth: 1,
     borderBottomColor: "#ccc",
@@ -46,6 +67,14 @@ const styles = StyleSheet.create({
   trailheadName: {
     fontSize: 16,
     fontWeight: "bold",
+  },
+  container: {
+    flex: 0.25,
+    padding: 14,
+  },
+  contentContainer: {
+    flex: 1,
+    alignItems: "center",
   },
 });
 

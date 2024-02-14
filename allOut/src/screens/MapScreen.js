@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, useContext } from "react";
 import {
   StyleSheet,
   View,
@@ -10,6 +10,8 @@ import MapboxGL, { MarkerView } from "@rnmapbox/maps";
 import { useRoute } from "@react-navigation/native";
 import Geolocation from "react-native-geolocation-service";
 import * as Device from "expo-device";
+import { HikeContext } from "../Context/HikeContext";
+import TrailheadList from "../components/TrailheadList";
 
 MapboxGL.setAccessToken(
   "pk.eyJ1Ijoia2hhbGVkMjA0OCIsImEiOiJjbHJqbnI2azQwNWRyMmtraXlzdWR3N2xoIn0.25oYJMrELC1s9VPPA60ndA"
@@ -38,6 +40,11 @@ const requestLocationPermission = async () => {
   }
 };
 
+const onTrailPress = (selectedTrail) => {
+  // Handle the selected trail, if needed
+  console.log("Selected Trail:", selectedTrail);
+};
+
 const MapScreen = () => {
   const mapRef = useRef(null);
   const cameraRef = useRef(null);
@@ -45,6 +52,7 @@ const MapScreen = () => {
   const { selectedTrail } = route.params || {};
   const [location, setLocation] = useState(null);
   const [loading, setLoading] = useState(false);
+  const hikes = useContext(HikeContext);
 
   useEffect(() => {
     const getLocation = async () => {
@@ -106,11 +114,9 @@ const MapScreen = () => {
             </MarkerView>
           )}
         </MapboxGL.MapView>
-        {/* <View
-          style={{ marginTop: 10, padding: 10, borderRadius: 10, width: "40%" }}
-        >
-          <Button title="Get Location" onPress={getLocation} />
-        </View> */}
+
+        <TrailheadList trailheads={hikes} onTrailPress={onTrailPress} />
+
         {loading && (
           <View style={styles.loadingContainer}>
             <Text>Loading...</Text>
@@ -133,7 +139,7 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
   },
   map: {
-    flex: 0.75,
+    flex: 1,
   },
   marker: {
     width: 20,
