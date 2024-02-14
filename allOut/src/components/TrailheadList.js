@@ -13,7 +13,7 @@ const TrailheadList = ({ trailheads }) => {
 
   const onTrailPress = (item) => {
     // Navigate to MapScreen with the selected trail as a parameter
-    navigation.navigate("Map", { selectedTrail: item });
+    navigation.navigate("Home", { selectedTrail: item });
   };
 
   const renderItem = ({ item }) => (
