@@ -1,23 +1,21 @@
 import { View, Text, FlatList } from "react-native";
 import React from "react";
+import SearchBar from "../components/SearchBar";
+
+import Weather from "../components/Weather";
 
 function HomeScreen(props) {
-  const todoItems = [
-    { id: "1", text: "Home page" },
-    { id: "2", text: "Login buttons" },
-    { id: "3", text: "Featured Hikes" },
-    // Add more tasks as needed
-  ];
-
-  const renderItem = ({ item }) => (
-    <View style={{ padding: 10 }}>
-      <Text>{item.text}</Text>
-    </View>
-  );
-
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Ready to go AllOut?</Text>
+    <View style={{ flex: 1 }}>
+      <SearchBar />
+      <View>
+        <Text>Weather</Text>
+        <View>
+          <Weather lon={-106.10864} lat={37.75306} />
+        </View>
+        <Text>Featured Hikes</Text>
+        <Text>Featured Climbs</Text>
+      </View>
     </View>
   );
 }
