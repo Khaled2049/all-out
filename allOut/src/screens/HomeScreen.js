@@ -17,12 +17,7 @@ function HomeScreen(props) {
 
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Todo</Text>
-      <FlatList
-        data={todoItems}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-      />
+      <Text>Ready to go AllOut?</Text>
     </View>
   );
 }

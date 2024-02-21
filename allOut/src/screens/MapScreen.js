@@ -113,7 +113,8 @@ const MapScreen = () => {
             </MarkerView>
           )}
         </MapboxGL.MapView>
-
+      </View>
+      <View style={styles.trailDropdown}>
         <TrailheadList trailheads={hikes} onTrailPress={onTrailPress} />
       </View>
     </View>
@@ -127,9 +128,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    flexDirection: "row",
   },
   container: {
     ...StyleSheet.absoluteFillObject,
+  },
+  trailDropdown: {
+    flex: 1,
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
   },
   listContainer: {
     padding: 16,
