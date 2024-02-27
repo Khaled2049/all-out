@@ -1,3 +1,15 @@
+# Running in Docker
+
+Make sure you are in the **all-out/frontend** directory.
+
+Run the command `docker compose up -d` to start the dev client
+
+This will be accessible at your [localhost](localhost:3000) on port 3000
+
+Any edits made will be seen after a browser refresh.
+
+To stop and remove the container, run `docker compose down` (do this at the end of a dev session).
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
