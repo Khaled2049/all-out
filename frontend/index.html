@@ -4,10 +4,30 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+    <title>AllOut!</title>
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <header>
+      <h1>All Out - Your Adventure Awaits</h1>
+      <nav>
+          <ul>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#services">Our Adventures</a></li>
+              <li><a href="#trails">Current Trail List</a></li>
+              <li><a href="#contact">Contact</a></li>
+          </ul>
+      </nav>
+    </header>
+    <main>
+      <div id="root"></div>
+      <div id="map-container">
+        <script type="module" src="/src/main.tsx"></script>
+      </div>
+    </main>
+
+    <footer>
+      <p>All Out © Year. Explore the world with us.</p>
+    </footer>
   </body>
 </html>

@@ -1,0 +1,15 @@
+services:
+  nodejs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: allout-website
+    container_name: allout-website-dev
+    restart: unless-stopped
+    ports:
+      - "3000:8080"
+    volumes:
+      - .:/frontend
+      - node_modules:/frontend/node_modules
+volumes:
+  node_modules:

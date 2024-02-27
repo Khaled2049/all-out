@@ -1,8 +1,8 @@
 import "mapbox-gl/dist/mapbox-gl.css";
 import Map, { Marker, FullscreenControl } from "react-map-gl";
 import { useState } from "react";
-import trails from "../data.json";
-// import trails from "./test.json";
+import trails from "../data/data.json";
+import '../css/App.css';
 
 const data: any = trails;
 
@@ -16,7 +16,7 @@ function App() {
           latitude: 40,
           zoom: 3.5,
         }}
-        style={{ width: "100vw", height: "100vh" }}
+        style={{ width: "80vw", height: "80vh" }}
         mapStyle="mapbox://styles/mapbox/streets-v9"
       >
         {data.features.slice(0, 3).map((feature: any, featureIndex: any) =>
