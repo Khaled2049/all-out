@@ -42,31 +42,44 @@ body {
 }
 
 header {
+    font-family: 'Indie Flower', cursive;
     color: white;
-    padding: 40px;
+    padding: 40px 20px; /* Adjust padding for header size */
     text-align: center;
-    /* Adjust alpha values to 1 for full opacity */
-    background-image: linear-gradient(to right, rgba(0, 128, 0, 1), rgba(64, 128, 128, 1), rgba(0, 128, 0, 1));
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adds depth with a subtle shadow */
+    background-image: linear-gradient(to right, 
+                                      #6da47e, /* A green tone from the branding palette */
+                                      #a2d5f2, /* A light sky blue */
+                                      #009BcF, /* A more saturated blue */
+                                      #061a44  /* A deep twilight blue */
+                                     );
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-family: 'Indie Flower', cursive;
+    color: white;
+    font-size: 4rem; /* Adjust the size as needed */
+    margin-bottom: 0.5rem; /* Adds some space below the heading */
 }
 
 nav ul {
     list-style-type: none;
+    margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
+    display: flex; /* Displays the list items in a row (horizontally) */
+    justify-content: center; /* Centers the list items in the nav */
     align-items: center;
 }
 
 nav ul li {
-    margin: 0 10px;
+    margin: 0 15px; /* Adds horizontal space between list items */
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     padding: 5px 10px;
-    border-radius: 5px;
+    font-size: 1.25rem; /* Adjust the size as needed */
     transition: background-color 0.3s;
 }
 
@@ -75,18 +88,28 @@ nav ul li a:hover, nav ul li a:focus {
 }
 
 main {
+    background-color: rgba(255, 255, 255, 0.88); /* Example: semi-transparent white background */
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 8px;
     margin: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 1; /* Ensure main content is above the background */
+    box-shadow: 0 8px 30px 10px rgba(0, 0, 0, 0.2);
 }
 
 section {
     margin-bottom: 20px;
 }
+
+@keyframes smoothColorShift {
+    0% {
+      background-color: rgba(0, 128, 0, 1);
+    }
+    50% {
+      background-color: rgba(64, 128, 128, 1);
+    }
+    100% {
+      background-color: rgba(0, 128, 0, 1);
+    }
+  }
 
 footer {
     background-color: #333;
