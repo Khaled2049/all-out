@@ -2,6 +2,8 @@
 
 Make sure you are in the **all-out/frontend** directory.
 
+Delete or clear out your node_modules directory if you have one before your first build.
+
 Run the command `docker compose up -d` to start the dev client
 
 This will be accessible at your [localhost](localhost:3000) on port 3000

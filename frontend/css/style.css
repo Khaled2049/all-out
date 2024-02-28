@@ -7,14 +7,14 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Fallback for older browsers */
-    background: -webkit-linear-gradient(to right, #ff7e5f, #feb47b); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #ff7e5f, #feb47b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #A64E12, #E97E1C); /* Fallback for older browsers */
+    background: -webkit-linear-gradient(to right, #A64E12, #E97E1C); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #A64E12, #E97E1C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: #333;
 }
 
 header {
-    background-color: #006400; /* Darker green */
+    background: linear-gradient(to right, #4B6934, #679a40); /* Darker green */
     color: white;
     padding: 20px;
     text-align: center;
