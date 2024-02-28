@@ -7,10 +7,10 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Fallback for older browsers */
-    background: -webkit-linear-gradient(to right, #ff7e5f, #feb47b); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #ff7e5f, #feb47b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: #333;
+    background-image: url('../images/all-outbackground.jpeg');
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 header {
@@ -56,3 +56,23 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+.bulletin-content {
+    /* ... existing styles ... */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.bulletin-content h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.bulletin-content h4 {
+    color: #006400;
+    margin-top: 15px;
+}
+
