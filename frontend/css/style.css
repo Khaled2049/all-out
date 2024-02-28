@@ -22,12 +22,40 @@ body {
     animation: pseudoZoom 30s infinite alternate ease-in-out;
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: auto;
+    padding: 10px;
+}
+
+#header {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 15vh;
+    right: 0px;
+    overflow: hidden;
+}
+
+#footer {
+    position: absolute; 
+    bottom: 0px; 
+    height: 5vh; 
+    left: 0px; 
+    right: 0px; 
+    overflow: hidden;
+}
+
 .main-container {
-    display: flex;
-    flex-direction: column;
+    position: absolute;
+    top: 15vh;
+    bottom: 5vh;
+    left: 0px; 
+    right: 0px; 
+    overflow: auto;
     justify-content: center; /* Center vertically */
-    height: calc(100vh - 60px); /* Adjust 60px based on your header/footer height */
-    margin-top: -100px; /* Adjust based on your header's height */
+    /* height: calc(100vh - 60px); Adjust 60px based on your header/footer height */
+     /* Adjust based on your header's height */
 }
 
 @keyframes pseudoZoom {
