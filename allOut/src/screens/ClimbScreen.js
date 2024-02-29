@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
-
+import mac from "../../data/mac.json";
 const ClimbsScreen = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -19,11 +19,13 @@ const ClimbsScreen = () => {
       try {
         setLoading(true);
 
-        const response = await axios.get(
-          "http://10.0.2.2:8000/number_of_climbs/10"
-        );
+        // Uncomment if runnnig server locally
+        // const response = await axios.get(
+        //   "http://10.0.2.2:8000/number_of_climbs/10"
+        // );
 
-        setData(response.data);
+        // setData(response.data);
+        setData(mac);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {

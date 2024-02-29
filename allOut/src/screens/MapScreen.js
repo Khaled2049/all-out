@@ -69,7 +69,6 @@ const MapScreen = () => {
   }, []);
 
   const renderHike = ({ item }) => {
-    console.log(item);
     return (
       <TouchableOpacity onPress={() => navigateToDetailScreen(item)}>
         <Text style={styles.textStyle}>{item.properties.name}</Text>

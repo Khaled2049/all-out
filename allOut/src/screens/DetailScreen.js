@@ -2,7 +2,6 @@ import React from "react";
 import { View, StyleSheet, Text } from "react-native";
 
 const DetailScreen = ({ route }) => {
-  console.log("Route", route.params);
   if (route.params?.climb) {
     const { climb } = route.params;
     return (

@@ -9,7 +9,9 @@ function HomeScreen(props) {
       <SearchBar />
       <View>
         <Text>Weather</Text>
-        <View>{/* <Weather lon={-106.10864} lat={37.75306} /> */}</View>
+        <View>
+          <Weather lon={-106.10864} lat={37.75306} />
+        </View>
       </View>
       <Text>Featured Climbs</Text>
     </View>
