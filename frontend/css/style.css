@@ -35,6 +35,9 @@ body {
     height: 15vh;
     right: 0px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #footer {
@@ -56,6 +59,16 @@ body {
     justify-content: center; /* Center vertically */
     /* height: calc(100vh - 60px); Adjust 60px based on your header/footer height */
      /* Adjust based on your header's height */
+}
+
+.main-container h2 {
+    color: rgb(81, 115, 56);
+    text-shadow: rgb(94, 158, 44) 1px 1px;
+    text-decoration: underline;
+}
+
+.main-container p {
+    color: rgb(48,76,79);
 }
 
 @keyframes pseudoZoom {
@@ -80,7 +93,7 @@ header {
 
 nav ul {
     list-style-type: none;
-    padding: 0;
+    padding: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -104,8 +117,7 @@ nav ul li a:hover, nav ul li a:focus {
 
 main {
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.5);
     margin: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: relative;
@@ -128,13 +140,20 @@ footer {
 
 .bulletin-content {
     padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
+    background-color: rgba(73, 110, 114, 1);
+    border-radius: 5px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
 }
 
 .bulletin-content h3 {
-    color: #333;
+    color: #fff;
+    text-shadow: rgba(166, 78, 18) 1px 1px;
+    margin-bottom: 10px;
+}
+
+.bulletin-content p {
+    color: #fff;
+    text-shadow: rgba(166, 78, 18) 1px 1px;
     margin-bottom: 10px;
 }
