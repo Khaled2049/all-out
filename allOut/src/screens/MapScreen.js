@@ -1,20 +1,22 @@
 import React, { useEffect, useState, useContext, useCallback } from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
 import MapboxGL, { MarkerView, PointAnnotation } from "@rnmapbox/maps";
 import { useRoute } from "@react-navigation/native";
 import Geolocation from "react-native-geolocation-service";
 import * as Device from "expo-device";
 import { HikeContext } from "../Context/HikeContext";
 import { requestLocationPermission } from "../utils/helperMethods";
+import { useNavigation } from "@react-navigation/native";
 
 MapboxGL.setAccessToken(
   "pk.eyJ1Ijoia2hhbGVkMjA0OCIsImEiOiJjbHJqbnI2azQwNWRyMmtraXlzdWR3N2xoIn0.25oYJMrELC1s9VPPA60ndA"
 );
-
-const onTrailPress = (selectedTrail) => {
-  // Handle the selected trail, if needed
-  console.log("Selected Trail:", selectedTrail);
-};
 
 const MapScreen = () => {
   const cameraRef = useCallback((node) => {
@@ -36,6 +38,7 @@ const MapScreen = () => {
   const [location, setLocation] = useState(null);
   const [loading, setLoading] = useState(false);
   const hikes = useContext(HikeContext);
+  const navigation = useNavigation();
 
   useEffect(() => {
     const getLocation = async () => {
@@ -64,6 +67,20 @@ const MapScreen = () => {
 
     getLocation();
   }, []);
+
+  const renderHike = ({ item }) => {
+    console.log(item);
+    return (
+      <TouchableOpacity onPress={() => navigateToDetailScreen(item)}>
+        <Text style={styles.textStyle}>{item.properties.name}</Text>
+      </TouchableOpacity>
+    );
+  };
+
+  const navigateToDetailScreen = (hike) => {
+    // Navigate to the detail screen with the selected climb data
+    navigation.navigate("Details", { hike });
+  };
 
   return (
     <View style={styles.container}>
@@ -99,9 +116,7 @@ const MapScreen = () => {
         <FlatList
           showsVerticalScrollIndicator={false}
           data={hikes}
-          renderItem={({ item }) => {
-            return <Text style={styles.textStyle}>{item.properties.name}</Text>;
-          }}
+          renderItem={renderHike}
           keyExtractor={(item) => item.id}
         />
       </View>

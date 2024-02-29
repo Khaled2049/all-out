@@ -2,6 +2,7 @@ import React from "react";
 import { View, StyleSheet, Text } from "react-native";
 
 const DetailScreen = ({ route }) => {
+  console.log("Route", route.params);
   if (route.params?.climb) {
     const { climb } = route.params;
     return (
@@ -14,6 +15,17 @@ const DetailScreen = ({ route }) => {
         <View>
           <Text>Commonly Packed items</Text>
         </View>
+      </View>
+    );
+  }
+  if (route.params?.hike) {
+    const { hike } = route.params;
+    return (
+      <View style={styles.container}>
+        <Text>Name: {hike.properties?.name}</Text>
+        <Text>Manager: {hike.properties?.manager}</Text>
+        <Text>Fee: {hike.properties?.fee}</Text>
+        <Text>Type: {hike.properties?.type}</Text>
       </View>
     );
   }
