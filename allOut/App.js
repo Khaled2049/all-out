@@ -6,7 +6,7 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 
 // Screens
 import HomeScreen from "./src/screens/HomeScreen";
-import HiikeScreen from "./src/screens/HikeScreen";
+import DetailScreen from "./src/screens/DetailScreen";
 import MapScreen from "./src/screens/MapScreen";
 import ClimbsScreen from "./src/screens/ClimbScreen";
 
@@ -46,7 +46,7 @@ const App = () => {
               name="Map"
               component={MapScreen}
               options={{
-                tabBarLabel: "Map",
+                tabBarLabel: "Hikes",
                 tabBarIcon: ({ color, size }) => (
                   <MaterialCommunityIcons
                     name="map"
@@ -63,7 +63,21 @@ const App = () => {
                 tabBarLabel: "Climbs",
                 tabBarIcon: ({ color, size }) => (
                   <MaterialCommunityIcons
-                    name="arrow-up"
+                    name="stairs"
+                    color={color}
+                    size={size}
+                  />
+                ),
+              }}
+            />
+            <Tab.Screen
+              name="Details"
+              component={DetailScreen}
+              options={{
+                tabBarLabel: "Navigate",
+                tabBarIcon: ({ color, size }) => (
+                  <MaterialCommunityIcons
+                    name="navigation"
                     color={color}
                     size={size}
                   />

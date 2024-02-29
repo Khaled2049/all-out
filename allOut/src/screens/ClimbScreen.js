@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
 import axios from "axios";
+import { useNavigation } from "@react-navigation/native";
 
 const ClimbsScreen = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigation = useNavigation();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,7 +34,16 @@ const ClimbsScreen = () => {
   }, []);
 
   const renderClimb = ({ item }) => {
-    return <Text style={styles.textStyle}>{item.route_name}</Text>;
+    return (
+      <TouchableOpacity onPress={() => navigateToDetailScreen(item)}>
+        <Text style={styles.textStyle}>{item.route_name}</Text>
+      </TouchableOpacity>
+    );
+  };
+
+  const navigateToDetailScreen = (climb) => {
+    // Navigate to the detail screen with the selected climb data
+    navigation.navigate("Details", { climb });
   };
 
   return (
