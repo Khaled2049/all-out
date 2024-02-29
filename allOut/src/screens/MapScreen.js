@@ -1,44 +1,15 @@
-import React, {
-  useEffect,
-  useState,
-  useRef,
-  useContext,
-  useCallback,
-} from "react";
+import React, { useEffect, useState, useContext, useCallback } from "react";
 import { View, Text, StyleSheet, FlatList } from "react-native";
 import MapboxGL, { MarkerView, PointAnnotation } from "@rnmapbox/maps";
 import { useRoute } from "@react-navigation/native";
 import Geolocation from "react-native-geolocation-service";
 import * as Device from "expo-device";
 import { HikeContext } from "../Context/HikeContext";
-import TrailheadList from "../components/TrailheadList";
+import { requestLocationPermission } from "../utils/helperMethods";
 
 MapboxGL.setAccessToken(
   "pk.eyJ1Ijoia2hhbGVkMjA0OCIsImEiOiJjbHJqbnI2azQwNWRyMmtraXlzdWR3N2xoIn0.25oYJMrELC1s9VPPA60ndA"
 );
-
-const requestLocationPermission = async () => {
-  try {
-    const granted = await PermissionsAndroid.request(
-      PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
-      {
-        title: "Geolocation Permission",
-        message: "Can we access your location?",
-        buttonNeutral: "Ask Me Later",
-        buttonNegative: "Cancel",
-        buttonPositive: "OK",
-      }
-    );
-    if (granted === "granted") {
-      return true;
-    } else {
-      console.log("You cannot use Geolocation");
-      return false;
-    }
-  } catch (err) {
-    return false;
-  }
-};
 
 const onTrailPress = (selectedTrail) => {
   // Handle the selected trail, if needed

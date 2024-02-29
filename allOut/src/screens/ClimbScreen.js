@@ -1,27 +1,56 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, FlatList } from "react-native";
+import axios from "axios";
 
 const ClimbsScreen = () => {
-  const friends = [
-    { name: "Climb" },
-    { name: "Climb1" },
-    { name: "Climb2" },
-    { name: "Climb3" },
-    { name: "Climb4" },
-  ];
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+
+        const response = await axios.get(
+          "http://10.0.2.2:8000/number_of_climbs/10"
+        );
+
+        setData(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const renderClimb = ({ item }) => {
+    return <Text style={styles.textStyle}>{item.route_name}</Text>;
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.topBox}></View>
 
       <View style={styles.bottomBox}>
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          data={friends}
-          renderItem={({ item }) => {
-            return <Text style={styles.textStyle}>{item.name}</Text>;
-          }}
-          keyExtractor={(friend) => friend.name}
-        />
+        {loading ? (
+          <Text>Loading...</Text>
+        ) : (
+          <View>
+            {/* Display your data here */}
+            {data ? (
+              <FlatList
+                showsVerticalScrollIndicator={false}
+                data={data}
+                keyExtractor={(climb) => climb.mp_route_id}
+                renderItem={renderClimb}
+              />
+            ) : (
+              <Text>No data available</Text>
+            )}
+          </View>
+        )}
       </View>
     </View>
   );
