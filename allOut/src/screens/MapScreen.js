@@ -5,8 +5,8 @@ import React, {
   useContext,
   useCallback,
 } from "react";
-import { View, Text, StyleSheet } from "react-native";
-import MapboxGL, { MarkerView } from "@rnmapbox/maps";
+import { View, Text, StyleSheet, FlatList } from "react-native";
+import MapboxGL, { MarkerView, PointAnnotation } from "@rnmapbox/maps";
 import { useRoute } from "@react-navigation/native";
 import Geolocation from "react-native-geolocation-service";
 import * as Device from "expo-device";
@@ -95,14 +95,9 @@ const MapScreen = () => {
   }, []);
 
   return (
-    <View style={styles.page}>
-      {loading && (
-        <View style={styles.loadingContainer}>
-          <Text>Loading...</Text>
-        </View>
-      )}
-      <View style={styles.container}>
-        <MapboxGL.MapView style={styles.map}>
+    <View style={styles.container}>
+      <View style={styles.topBox}>
+        <MapboxGL.MapView style={{ ...StyleSheet.absoluteFillObject }}>
           <MapboxGL.Camera ref={cameraRef} />
           {selectedTrail && (
             <MarkerView
@@ -112,10 +107,32 @@ const MapScreen = () => {
               <View style={styles.marker} />
             </MarkerView>
           )}
+          {hikes.map((trail) => (
+            <PointAnnotation
+              key={trail.id}
+              id={trail.id}
+              title={trail.properties.name}
+              coordinate={trail.geometry.coordinates}
+            >
+              <View style={styles.marker} />
+            </PointAnnotation>
+          ))}
         </MapboxGL.MapView>
+        {loading && (
+          <View style={styles.loadingContainer}>
+            <Text>Loading...</Text>
+          </View>
+        )}
       </View>
-      <View style={styles.trailDropdown}>
-        <TrailheadList trailheads={hikes} onTrailPress={onTrailPress} />
+      <View style={styles.bottomBox}>
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          data={hikes}
+          renderItem={({ item }) => {
+            return <Text style={styles.textStyle}>{item.properties.name}</Text>;
+          }}
+          keyExtractor={(item) => item.id}
+        />
       </View>
     </View>
   );
@@ -124,14 +141,23 @@ const MapScreen = () => {
 export default MapScreen;
 
 const styles = StyleSheet.create({
-  page: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "row",
+  textStyle: {
+    marginVertical: 10,
   },
   container: {
-    ...StyleSheet.absoluteFillObject,
+    flex: 1,
+  },
+  topBox: {
+    flex: 0.7,
+    backgroundColor: "lightblue",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  bottomBox: {
+    flex: 0.3,
+    backgroundColor: "lightgreen",
+    justifyContent: "center",
+    alignItems: "center",
   },
   trailDropdown: {
     flex: 1,
@@ -145,15 +171,15 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   map: {
-    flex: 0.75,
+    flex: 0.7,
   },
   row: {
     borderBottomWidth: 1,
     borderBottomColor: "#ccc",
   },
   marker: {
-    width: 20,
-    height: 20,
+    width: 5,
+    height: 5,
     backgroundColor: "red",
     borderRadius: 10,
   },
