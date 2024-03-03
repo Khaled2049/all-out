@@ -1,7 +1,7 @@
 import { View, Text, FlatList } from "react-native";
 import React from "react";
 
-function HomeScreen(props) {
+function ProfileScreen(props) {
   const todoItems = [
     { id: "1", text: "Home page" },
     { id: "2", text: "Login buttons" },
@@ -27,4 +27,4 @@ function HomeScreen(props) {
   );
 }
 
-export default HomeScreen;
+export default ProfileScreen;
