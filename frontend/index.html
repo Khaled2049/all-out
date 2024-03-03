@@ -1,35 +1,62 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AllOut!</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-  </head>
-  <body>
-    <header>
-      <h1>All Out - Your Adventure Awaits!</h1>
-      <nav>
-          <ul>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#services">Our Adventures</a></li>
-              <li><a href="#trails">Current Trail List</a></li>
-              <li><a href="#contact">Contact</a></li>
-          </ul>
-      </nav>
-    </header>
-    <main>
-      <div id="root">
-        
-      </div>
-      <div id="map-container">
-        <!-- <script type="module" src="/src/main.tsx"></script> -->
-      </div>
-    </main>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Out - Adventure Awaits</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/fonts.css">
+</head>
+<body>
+    <div class="background-image-zoom"></div> <!-- Background image container -->
 
-    <footer>
-      <p>All Out © Year. Explore the world with us.</p>
-    </footer>
-  </body>
+    <div class="grid-container">
+        <div id="header">
+            <header class="cool-font">
+              <h1>ALL OUT - Your Adventure Awaits</h1>
+              <nav>
+                  <ul>
+                      <li><a href="#about">About Us</a></li>
+                      <li><a href="#services">Our Adventures</a></li>
+                      <li><a href="#contact">Contact</a></li>
+                  </ul>
+              </nav>
+            </header>
+        </div>
+        <div class="main-container basic-font">
+            <main>
+                <section id="about">
+                    <h2>About Us</h2>
+                    <p>All Out is an adventure application designed to make it easier for adventure seekers to explore trails. With up-to-date trail weather forecasts and tailored packing lists, we ensure your adventure is seamless and enjoyable.</p>
+                    <br> <p> <strong>All Out Team: </strong>Jacob Mckinney, Khaled Hossain, Francois Claude, Andrew Logue, Tom Stoughton, Akshit Panapuzha</p>
+                </section>
+                <section id="services">
+                    <h2>Our Adventures</h2>
+                    <p>Discover a wide range of adventures with All Out. From serene hikes to thrilling mountain biking trails, we've got all the information you need to choose your next adventure.</p>
+                </section>
+                <section id="update-bulletin">
+                    <h2>Project Progress</h2>
+                    <br>
+                    <div class="bulletin-content">
+                        <h3>What's New: <span id="current-date"></span></h3>
+                        <p>Hey there, adventurers and esteemed partners!</p><br>
+                        <p>🚀 <strong>Kicking Off:</strong> We've laid down the digital bricks and mortar, setting the stage for an app that's as wild and free as your spirit of adventure.</p>
+                        <p>📍 <strong>On the Map:</strong> Location tracking is up and running! Now you can also pull up a menu that tracks all your recent trails. It's like breadcrumbs, but cooler (and won't attract any birds).</p>
+                        <p>🔜 <strong>What's Next:</strong> There's a heap of enhancements on the horizon. Our landing page is getting a makeover to mirror the excitement we all feel about the great outdoors. Keep your eyes peeled for updates that are as fresh as the mountain air!</p>
+                        <br><p>Stay adventurous,<br>The All Out Team</p>
+                    </div>
+                </section>
+                <section id="contact">
+                    <h2>Contact Us</h2>
+                    <p>Got questions? Reach out to us for more information on how to make the most out of your next adventure.</p>
+                </section>
+            </main>
+        </div>
+        <div id="footer" class="fancy-font">
+            <footer>
+                <p>All Out © 2023. Explore the world with us!</p>
+            </footer>
+        </div>
+    </div>
+</body>
 </html>
