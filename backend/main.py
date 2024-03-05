@@ -61,12 +61,6 @@ async def get_climbs(number_of_climbs: int, db: db_dependency):
     climbs = db.query(models.Climbs).limit(number_of_climbs).all()
     return climbs
 
-
-@app.get("/number_of_climbs/{number_of_climbs}")
-async def get_climbs(number_of_climbs: int, db: db_dependency):
-    climbs = db.query(models.Climbs).limit(number_of_climbs).all()
-    return climbs
-
 # list hikes
 @app.get("/hikes")
 async def get_hikes(db: db_dependency):
