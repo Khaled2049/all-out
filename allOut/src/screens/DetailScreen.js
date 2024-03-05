@@ -9,7 +9,7 @@ const DetailScreen = ({ route }) => {
     return (
       <View style={styles.container}>
         <View style={styles.imageContainer}>
-          <Image source={img}></Image>
+          <Image style={styles.image} source={img}></Image>
         </View>
         <Text>Name: {climb?.route_name}</Text>
         <Text>Description: {climb?.description}</Text>
@@ -28,7 +28,7 @@ const DetailScreen = ({ route }) => {
     return (
       <View style={styles.container}>
         <View style={styles.imageContainer}>
-          <Image source={img}></Image>
+          <Image style={styles.image} source={img}></Image>
         </View>
         <Text>Image: {img}</Text>
         <Text>Name: {hike.properties?.name}</Text>
@@ -66,13 +66,12 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     height: 400,
-    width: Dimensions.get("window").width,
   },
   image: {
     flex: 1,
     height: '100%',
-    width: undefined,
-    resizeMode: 'contain',
+    width: '100%',
+    objectFit: 'cover',
   },
 });
 
