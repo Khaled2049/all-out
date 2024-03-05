@@ -8,13 +8,13 @@ function LoadImages(){
 
     // create objects for climb images
     fs.readdirSync("./img/climbs/").forEach(file => {
-      let id = file.split('.', 1);
-      let id_str = id.join("");
-      let img_path = "./img/climbs/" + file;
-      imageJSON.push({
-        'id': id_str,
-        'image': "require('" + img_path +"')"
-      })
+        let id = file.split('.', 1);
+        let id_str = id.join("");
+        let img_path = "./img/climbs/" + file;
+        imageJSON.push({
+            'id': id_str,
+            'image': "require('" + img_path +"')"
+        })
     });
 
     // create objects for hike images
