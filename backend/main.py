@@ -38,7 +38,7 @@ class HikeBase(BaseModel):
     manager: str
     longitude: str
     latitude : str
-    
+
 def get_db():
     db = SessionLocal()
     try:
@@ -60,3 +60,38 @@ async def get(climb_id: str, db: db_dependency):
 async def get_climbs(number_of_climbs: int, db: db_dependency):
     climbs = db.query(models.Climbs).limit(number_of_climbs).all()
     return climbs
+
+
+@app.get("/number_of_climbs/{number_of_climbs}")
+async def get_climbs(number_of_climbs: int, db: db_dependency):
+    climbs = db.query(models.Climbs).limit(number_of_climbs).all()
+    return climbs
+
+# list hikes
+@app.get("/hikes")
+async def get_hikes(db: db_dependency):
+    hikes = db.query(models.Hikes).all()
+    return hikes
+
+# delete hike
+@app.delete("/delete_hikes/{hike_id}")
+async def delete_hike(hike_id: str, db: db_dependency):
+    hike_to_delete = db.query(models.Hikes).filter(models.Hikes.id == hike_id).first()
+    if not hike_to_delete:
+        raise HTTPException(status_code=404, detail="Hike not found")
+    db.delete(hike_to_delete)
+    db.commit()
+    return {"detail": "Hike deleted successfully"}
+
+# add hike
+@app.post("/add_hike", status_code=201)
+async def add_hike(hike_data: Hike, db: db_dependency):
+    new_hike = models.Hikes(**hike_data.dict())
+    db.add(new_hike)
+    db.commit()
+    db.refresh(new_hike)
+    return new_hike
+
+
+
+
