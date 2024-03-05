@@ -25,6 +25,20 @@ class ClimbBase(BaseModel):
     longitude: str
     latitude : str
 
+class HikeBase(BaseModel):
+    id: str
+    feature_id: str
+    place_id: str
+    name: str
+    alt_name: str  
+    type: str  
+    bathrooms: str  
+    fee: str
+    water: str 
+    manager: str
+    longitude: str
+    latitude : str
+    
 def get_db():
     db = SessionLocal()
     try:
