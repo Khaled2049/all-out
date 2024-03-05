@@ -1,11 +1,16 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, Image, Dimensions} from "react-native";
 
+const images = [{"id":"C - 008","image":require('./img/climbs/C - 008.jpg')},{"id":"Conn Route","image":require('./img/climbs/Conn Route.jpg')},{"id":"Monkey Swing","image":require('./img/climbs/Monkey Swing.jpg')},{"id":"Oopma loopma Traverse","image":require('./img/climbs/Oopma loopma Traverse.jpg')},{"id":"Puppy Love","image":require('./img/climbs/Puppy Love.jpg')},{"id":"Violins","image":require('./img/climbs/Violins.jpg')},{"id":"trailheads_cotrex02192019.1","image":require('./img/trailheads/trailheads_cotrex02192019.1.jpg')},{"id":"trailheads_cotrex02192019.10","image":require('./img/trailheads/trailheads_cotrex02192019.10.jpg')},{"id":"trailheads_cotrex02192019.2","image":require('./img/trailheads/trailheads_cotrex02192019.2.jpg')},{"id":"trailheads_cotrex02192019.3","image":require('./img/trailheads/trailheads_cotrex02192019.3.jpg')},{"id":"trailheads_cotrex02192019.4","image":require('./img/trailheads/trailheads_cotrex02192019.4.jpg')},{"id":"trailheads_cotrex02192019.5","image":require('./img/trailheads/trailheads_cotrex02192019.5.jpg')},{"id":"trailheads_cotrex02192019.7","image":require('./img/trailheads/trailheads_cotrex02192019.7.jpg')},{"id":"trailheads_cotrex02192019.8","image":require('./img/trailheads/trailheads_cotrex02192019.8.jpg')},{"id":"trailheads_cotrex02192019.9","image":require('./img/trailheads/trailheads_cotrex02192019.9.jpg')}];
 const DetailScreen = ({ route }) => {
   if (route.params?.climb) {
     const { climb } = route.params;
+    const img = images.filter((o) => {return (o['id'] == climb.route_name);})[0]['image'];
     return (
       <View style={styles.container}>
+        <View style={styles.imageContainer}>
+          <Image source={img}></Image>
+        </View>
         <Text>Name: {climb?.route_name}</Text>
         <Text>Description: {climb?.description}</Text>
         <Text>First Ascent: {climb?.first_ascent}</Text>
@@ -19,8 +24,13 @@ const DetailScreen = ({ route }) => {
   }
   if (route.params?.hike) {
     const { hike } = route.params;
+    const img = images.filter((o) => {return (o['id'] == hike.id);})[0]['image'];
     return (
       <View style={styles.container}>
+        <View style={styles.imageContainer}>
+          <Image source={img}></Image>
+        </View>
+        <Text>Image: {img}</Text>
         <Text>Name: {hike.properties?.name}</Text>
         <Text>Manager: {hike.properties?.manager}</Text>
         <Text>Fee: {hike.properties?.fee}</Text>
@@ -42,6 +52,8 @@ const styles = StyleSheet.create({
   },
   container: {
     padding: 16,
+    height: Dimensions.get("window").height,
+    width: Dimensions.get("window").width,
   },
   row: {
     borderBottomWidth: 1,
@@ -51,6 +63,16 @@ const styles = StyleSheet.create({
   trailheadName: {
     fontSize: 16,
     fontWeight: "bold",
+  },
+  imageContainer: {
+    height: 400,
+    width: Dimensions.get("window").width,
+  },
+  image: {
+    flex: 1,
+    height: '100%',
+    width: undefined,
+    resizeMode: 'contain',
   },
 });
 
