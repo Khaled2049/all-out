@@ -9,6 +9,7 @@ import HomeScreen from "./src/screens/HomeScreen";
 import DetailScreen from "./src/screens/DetailScreen";
 import MapScreen from "./src/screens/MapScreen";
 import ClimbsScreen from "./src/screens/ClimbScreen";
+import SearchScreen from "./src/screens/SearchScreen";
 
 import { HikeContext } from "./src/Context/HikeContext";
 import { ClimbContext } from "./src/Context/ClimbsContext";
@@ -43,10 +44,24 @@ const App = () => {
               }}
             />
             <Tab.Screen
+              name="Search"
+              component={SearchScreen}
+              options={{
+                tabBarLabel: "Search",
+                tabBarIcon: ({ color, size }) => (
+                  <MaterialCommunityIcons
+                    name="map-search"
+                    color={color}
+                    size={size}
+                  />
+                ),
+              }}
+            />
+            <Tab.Screen
               name="Map"
               component={MapScreen}
               options={{
-                tabBarLabel: "Hikes",
+                tabBarLabel: "Map",
                 tabBarIcon: ({ color, size }) => (
                   <MaterialCommunityIcons
                     name="map"
@@ -57,13 +72,13 @@ const App = () => {
               }}
             />
             <Tab.Screen
-              name="Climbs"
-              component={ClimbsScreen}
+              name="Trail Reports"
+              component={DetailScreen}
               options={{
-                tabBarLabel: "Climbs",
+                tabBarLabel: "Trail Reports",
                 tabBarIcon: ({ color, size }) => (
                   <MaterialCommunityIcons
-                    name="stairs"
+                    name="navigation"
                     color={color}
                     size={size}
                   />
@@ -71,13 +86,13 @@ const App = () => {
               }}
             />
             <Tab.Screen
-              name="Details"
-              component={DetailScreen}
+              name="Profile"
+              component={ClimbsScreen}
               options={{
-                tabBarLabel: "Navigate",
+                tabBarLabel: "Profile",
                 tabBarIcon: ({ color, size }) => (
                   <MaterialCommunityIcons
-                    name="navigation"
+                    name="face-man-outline"
                     color={color}
                     size={size}
                   />
