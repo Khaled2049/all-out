@@ -20,4 +20,4 @@
 
 - Open POWERSHELL
 
-- Go to `all-out/allout` directoary and run `npm install` then `npx expo run:android`
+- Go to `all-out/allout` directory and run `npm install` then `npx expo run:android`
