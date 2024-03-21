@@ -43,7 +43,7 @@ const App = () => {
                 ),
               }}
             />
-            <Tab.Screen
+            {/* <Tab.Screen
               name="Search"
               component={SearchScreen}
               options={{
@@ -56,7 +56,7 @@ const App = () => {
                   />
                 ),
               }}
-            />
+            /> */}
             <Tab.Screen
               name="Map"
               component={MapScreen}

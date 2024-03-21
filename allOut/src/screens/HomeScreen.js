@@ -16,7 +16,6 @@ function HomeScreen(props) {
             <Weather lon={-106.10864} lat={37.75306} />
           </View>
         </View>
-        <Text>Featured Climbs</Text>
       </View>
     </LinearGradient>
   );
