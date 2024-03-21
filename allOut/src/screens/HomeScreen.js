@@ -1,21 +1,30 @@
-import { View, Text, FlatList } from "react-native";
-import React from "react";
+import { View, Text, StyleSheet } from "react-native";
+import React, { useContext } from "react";
 import SearchBar from "../components/SearchBar";
 import Weather from "../components/Weather";
+import { LinearGradient } from "expo-linear-gradient";
+import { HikeContext } from "../Context/HikeContext";
 
 function HomeScreen(props) {
+  const hikes = useContext(HikeContext);
   return (
-    <View>
-      <SearchBar />
+    <LinearGradient colors={["#87CEEB", "#32CD32"]} style={styles.container}>
       <View>
-        <Text>Weather</Text>
+        <SearchBar data={hikes} />
         <View>
-          <Weather lon={-106.10864} lat={37.75306} />
+          <View>
+            <Weather lon={-106.10864} lat={37.75306} />
+          </View>
         </View>
+        <Text>Featured Climbs</Text>
       </View>
-      <Text>Featured Climbs</Text>
-    </View>
+    </LinearGradient>
   );
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
 export default HomeScreen;

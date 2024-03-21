@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { View, TextInput, StyleSheet } from "react-native";
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = ({ data, onSearch }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = () => {
-    // Pass the search term to the parent component or perform any other search-related action
-    // onSearch(searchTerm);
-    console.log("Search Term:", searchTerm);
+    const result = data.find((item) => item === searchTerm); // Assuming data is an array of strings or primitive values
+    if (result) {
+      console.log("Selected Item:", result);
+    } else {
+      console.log("Item not found");
+    }
   };
 
   return (

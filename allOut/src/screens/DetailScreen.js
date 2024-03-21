@@ -1,15 +1,66 @@
 import React from "react";
-import { View, StyleSheet, Text, Image, Dimensions} from "react-native";
+import { View, StyleSheet, Text, Image, Dimensions } from "react-native";
 
-const images = [{"id":"C - 008","image":require('./img/climbs/C - 008.jpg')},{"id":"Conn Route","image":require('./img/climbs/Conn Route.jpg')},{"id":"Monkey Swing","image":require('./img/climbs/Monkey Swing.jpg')},{"id":"Oopma loopma Traverse","image":require('./img/climbs/Oopma loopma Traverse.jpg')},{"id":"Puppy Love","image":require('./img/climbs/Puppy Love.jpg')},{"id":"Violins","image":require('./img/climbs/Violins.jpg')},{"id":"trailheads_cotrex02192019.1","image":require('./img/trailheads/trailheads_cotrex02192019.1.jpg')},{"id":"trailheads_cotrex02192019.10","image":require('./img/trailheads/trailheads_cotrex02192019.10.jpg')},{"id":"trailheads_cotrex02192019.2","image":require('./img/trailheads/trailheads_cotrex02192019.2.jpg')},{"id":"trailheads_cotrex02192019.3","image":require('./img/trailheads/trailheads_cotrex02192019.3.jpg')},{"id":"trailheads_cotrex02192019.4","image":require('./img/trailheads/trailheads_cotrex02192019.4.jpg')},{"id":"trailheads_cotrex02192019.5","image":require('./img/trailheads/trailheads_cotrex02192019.5.jpg')},{"id":"trailheads_cotrex02192019.6","image":require('./img/trailheads/trailheads_cotrex02192019.6.jpg')},{"id":"trailheads_cotrex02192019.7","image":require('./img/trailheads/trailheads_cotrex02192019.7.jpg')},{"id":"trailheads_cotrex02192019.8","image":require('./img/trailheads/trailheads_cotrex02192019.8.jpg')},{"id":"trailheads_cotrex02192019.9","image":require('./img/trailheads/trailheads_cotrex02192019.9.jpg')}];
+const images = [
+  { id: "C - 008", image: require("./img/climbs/C - 008.jpg") },
+  { id: "Conn Route", image: require("./img/climbs/Conn Route.jpg") },
+  { id: "Monkey Swing", image: require("./img/climbs/Monkey Swing.jpg") },
+  {
+    id: "Oopma loopma Traverse",
+    image: require("./img/climbs/Oopma loopma Traverse.jpg"),
+  },
+  { id: "Puppy Love", image: require("./img/climbs/Puppy Love.jpg") },
+  { id: "Violins", image: require("./img/climbs/Violins.jpg") },
+  {
+    id: "trailheads_cotrex02192019.1",
+    image: require("./img/trailheads/trailheads_cotrex02192019.1.jpg"),
+  },
+  {
+    id: "trailheads_cotrex02192019.10",
+    image: require("./img/trailheads/trailheads_cotrex02192019.10.jpg"),
+  },
+  {
+    id: "trailheads_cotrex02192019.2",
+    image: require("./img/trailheads/trailheads_cotrex02192019.2.jpg"),
+  },
+  {
+    id: "trailheads_cotrex02192019.3",
+    image: require("./img/trailheads/trailheads_cotrex02192019.3.jpg"),
+  },
+  {
+    id: "trailheads_cotrex02192019.4",
+    image: require("./img/trailheads/trailheads_cotrex02192019.4.jpg"),
+  },
+  {
+    id: "trailheads_cotrex02192019.5",
+    image: require("./img/trailheads/trailheads_cotrex02192019.5.jpg"),
+  },
+  {
+    id: "trailheads_cotrex02192019.6",
+    image: require("./img/trailheads/trailheads_cotrex02192019.6.jpg"),
+  },
+  {
+    id: "trailheads_cotrex02192019.7",
+    image: require("./img/trailheads/trailheads_cotrex02192019.7.jpg"),
+  },
+  {
+    id: "trailheads_cotrex02192019.8",
+    image: require("./img/trailheads/trailheads_cotrex02192019.8.jpg"),
+  },
+  {
+    id: "trailheads_cotrex02192019.9",
+    image: require("./img/trailheads/trailheads_cotrex02192019.9.jpg"),
+  },
+];
 const DetailScreen = ({ route }) => {
   if (route.params?.climb) {
     const { climb } = route.params;
-    const img_obj = images.filter((o) => {return (o['id'] == climb.route_name);})[0];
+    const img_obj = images.filter((o) => {
+      return o["id"] == climb.route_name;
+    })[0];
     let img = null;
-    if (img_obj) 
-    {
-      img = img_obj['image'];
+    if (img_obj) {
+      img = img_obj["image"];
       return (
         <View style={styles.container}>
           <View style={styles.imageContainer}>
@@ -25,9 +76,7 @@ const DetailScreen = ({ route }) => {
           </View>
         </View>
       );
-    }
-    else
-    {
+    } else {
       return (
         <View style={styles.container}>
           <View style={styles.imageContainer}>
@@ -47,10 +96,12 @@ const DetailScreen = ({ route }) => {
   }
   if (route.params?.hike) {
     const { hike } = route.params;
-    const img_obj = images.filter((o) => {return (o['id'] == hike.id);})[0];
+    const img_obj = images.filter((o) => {
+      return o["id"] == hike.id;
+    })[0];
     let img = null;
     if (img_obj) {
-      img = img_obj['image'];
+      img = img_obj["image"];
       return (
         <View style={styles.container}>
           <View style={styles.imageContainer}>
@@ -62,9 +113,7 @@ const DetailScreen = ({ route }) => {
           <Text>Type: {hike.properties?.type}</Text>
         </View>
       );
-    }
-    else
-    {
+    } else {
       return (
         <View style={styles.container}>
           <View style={styles.imageContainer}>
@@ -106,13 +155,13 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     height: 400,
-    textAlign: 'center',
+    textAlign: "center",
   },
   image: {
     flex: 1,
-    height: '100%',
-    width: '100%',
-    objectFit: 'cover',
+    height: "100%",
+    width: "100%",
+    objectFit: "cover",
   },
 });
 

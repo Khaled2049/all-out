@@ -78,7 +78,7 @@ const MapScreen = () => {
 
   const navigateToDetailScreen = (hike) => {
     // Navigate to the detail screen with the selected climb data
-    navigation.navigate("Details", { hike });
+    navigation.navigate("Trail Reports", { hike });
   };
 
   return (
