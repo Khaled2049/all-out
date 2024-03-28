@@ -19,20 +19,20 @@ MapboxGL.setAccessToken(
 );
 
 const MapScreen = () => {
-  const cameraRef = useCallback((node) => {
-    // console.log("Node", node);
-    if (node && !Device.isDevice) {
-      node.setCamera({
-        centerCoordinate: [-106.10864, 37.75306],
-        zoomLevel: 5,
-      });
-    } else {
-      node.setCamera({
-        centerCoordinate: [location.coords.longitude, location.coords.latitude],
-        zoomLevel: 5,
-      });
-    }
-  }, []);
+  // const cameraRef = useCallback((node) => {
+  //   // console.log("Node", node);
+  //   if (node && !Device.isDevice) {
+  //     node.setCamera({
+  //       centerCoordinate: [-106.10864, 37.75306],
+  //       zoomLevel: 5,
+  //     });
+  //   } else {
+  //     node.setCamera({
+  //       centerCoordinate: [location.coords.longitude, location.coords.latitude],
+  //       zoomLevel: 5,
+  //     });
+  //   }
+  // }, []);
   const route = useRoute();
   const { selectedTrail } = route.params || {};
   const [location, setLocation] = useState(null);
@@ -84,7 +84,7 @@ const MapScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.topBox}>
-        <MapboxGL.MapView style={{ ...StyleSheet.absoluteFillObject }}>
+        {/* <MapboxGL.MapView style={{ ...StyleSheet.absoluteFillObject }}>
           <MapboxGL.Camera ref={cameraRef} />
           {selectedTrail && (
             <MarkerView
@@ -104,7 +104,7 @@ const MapScreen = () => {
               <View style={styles.marker} />
             </PointAnnotation>
           ))}
-        </MapboxGL.MapView>
+        </MapboxGL.MapView> */}
         {loading && (
           <View style={styles.loadingContainer}>
             <Text>Loading...</Text>
