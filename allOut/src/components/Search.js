@@ -21,7 +21,7 @@ const Search = ({ clicked, searchPhrase, setSearchPhrase, setClicked }) => {
         {/* Input field */}
         <TextInput
           style={styles.input}
-          placeholder="Search"
+          placeholder="Find your next adventure"
           value={searchPhrase}
           onChangeText={setSearchPhrase}
           onFocus={() => {
@@ -65,7 +65,8 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
     flexDirection: "row",
-    width: "90%",
+    width: "100%",
+    padding: 10,
   },
   searchBar__unclicked: {
     padding: 10,
@@ -87,6 +88,5 @@ const styles = StyleSheet.create({
   input: {
     fontSize: 20,
     marginLeft: 10,
-    width: "90%",
   },
 });

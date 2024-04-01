@@ -1,6 +1,14 @@
-import { View, Text, StyleSheet, SafeAreaView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  SafeAreaView,
+  Dimensions,
+  ImageBackground,
+} from "react-native";
 import React, { useContext, useState } from "react";
 import Weather from "../components/Weather";
+
 import { HikeContext } from "../Context/HikeContext";
 
 import Search from "../components/Search";
@@ -13,25 +21,29 @@ function HomeScreen(props) {
   const [clicked, setClicked] = useState(false);
 
   return (
-    <View>
-      <View>
-        <Weather lon={-106.10864} lat={37.75306} />
-        <View style={styles.root}>
-          <Search
-            clicked={clicked}
-            searchPhrase={searchPhrase}
-            setSearchPhrase={setSearchPhrase}
-            setClicked={setClicked}
-          />
+    <ImageBackground
+      source={require("../../assets/light_background.png")}
+      style={{
+        height: Dimensions.get("window").height,
+        width: Dimensions.get("window").width,
+      }}
+    >
+      <Weather lon={-106.10864} lat={37.75306} />
+      <View style={styles.root}>
+        <Search
+          clicked={clicked}
+          searchPhrase={searchPhrase}
+          setSearchPhrase={setSearchPhrase}
+          setClicked={setClicked}
+        />
 
-          <List
-            searchPhrase={searchPhrase}
-            setClicked={setClicked}
-            data={hikes}
-          />
-        </View>
+        <List
+          searchPhrase={searchPhrase}
+          setClicked={setClicked}
+          data={hikes}
+        />
       </View>
-    </View>
+    </ImageBackground>
   );
 }
 

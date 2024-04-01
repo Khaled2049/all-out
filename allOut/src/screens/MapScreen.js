@@ -13,26 +13,27 @@ import * as Device from "expo-device";
 import { HikeContext } from "../Context/HikeContext";
 import { requestLocationPermission } from "../utils/helperMethods";
 import { useNavigation } from "@react-navigation/native";
+import Card from "../components/Card";
 
 MapboxGL.setAccessToken(
   "pk.eyJ1Ijoia2hhbGVkMjA0OCIsImEiOiJjbHJqbnI2azQwNWRyMmtraXlzdWR3N2xoIn0.25oYJMrELC1s9VPPA60ndA"
 );
 
 const MapScreen = () => {
-  // const cameraRef = useCallback((node) => {
-  //   // console.log("Node", node);
-  //   if (node && !Device.isDevice) {
-  //     node.setCamera({
-  //       centerCoordinate: [-106.10864, 37.75306],
-  //       zoomLevel: 5,
-  //     });
-  //   } else {
-  //     node.setCamera({
-  //       centerCoordinate: [location.coords.longitude, location.coords.latitude],
-  //       zoomLevel: 5,
-  //     });
-  //   }
-  // }, []);
+  const cameraRef = useCallback((node) => {
+    // console.log("Node", node);
+    if (node && !Device.isDevice) {
+      node.setCamera({
+        centerCoordinate: [-106.10864, 37.75306],
+        zoomLevel: 5,
+      });
+    } else {
+      node.setCamera({
+        centerCoordinate: [location.coords.longitude, location.coords.latitude],
+        zoomLevel: 5,
+      });
+    }
+  }, []);
   const route = useRoute();
   const { selectedTrail } = route.params || {};
   const [location, setLocation] = useState(null);
@@ -68,14 +69,22 @@ const MapScreen = () => {
     getLocation();
   }, []);
 
+  // const renderHike = ({ item }) => {
+  //   return (
+  //     <TouchableOpacity onPress={() => navigateToDetailScreen(item)}>
+  //       <Text style={styles.textStyle}>{item.properties.name}</Text>
+  //     </TouchableOpacity>
+  //   );
+  // };
+
   const renderHike = ({ item }) => {
     return (
-      <TouchableOpacity onPress={() => navigateToDetailScreen(item)}>
-        <Text style={styles.textStyle}>{item.properties.name}</Text>
-      </TouchableOpacity>
+      <Card
+        title={item.properties.name}
+        onPress={() => navigateToDetailScreen(item)}
+      />
     );
   };
-
   const navigateToDetailScreen = (hike) => {
     // Navigate to the detail screen with the selected climb data
     navigation.navigate("Trail Reports", { hike });
@@ -84,7 +93,7 @@ const MapScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.topBox}>
-        {/* <MapboxGL.MapView style={{ ...StyleSheet.absoluteFillObject }}>
+        <MapboxGL.MapView style={{ ...StyleSheet.absoluteFillObject }}>
           <MapboxGL.Camera ref={cameraRef} />
           {selectedTrail && (
             <MarkerView
@@ -104,7 +113,7 @@ const MapScreen = () => {
               <View style={styles.marker} />
             </PointAnnotation>
           ))}
-        </MapboxGL.MapView> */}
+        </MapboxGL.MapView>
         {loading && (
           <View style={styles.loadingContainer}>
             <Text>Loading...</Text>
