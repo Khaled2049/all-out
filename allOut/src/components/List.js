@@ -1,28 +1,38 @@
 // List.js
 import React from "react";
 import { StyleSheet, Text, View, FlatList, SafeAreaView } from "react-native";
-
-// definition of the Item, which will be rendered in the FlatList
-const Item = ({ name }) => (
-  <View style={styles.item}>
-    <Text style={styles.title}>{name}</Text>
-  </View>
-);
+import Card from "./Card";
+import { useNavigation } from "@react-navigation/native";
 
 // the filter
 const List = ({ searchPhrase, setClicked, data }) => {
+  const navigateToDetailScreen = (hike) => {
+    // Navigate to the detail screen with the selected climb data
+    navigation.navigate("Trail Reports", { hike });
+  };
+
+  const navigation = useNavigation();
+
+  const Item = ({ item }) => {
+    return (
+      <Card
+        title={item.properties.name}
+        onPress={() => navigateToDetailScreen(item)}
+      />
+    );
+  };
+
   const renderItem = ({ item }) => {
-    // when no input, show all
     if (searchPhrase === "") {
-      return "";
+      return null;
     }
-    // filter of the name
+
     if (
       item.properties.name
         .toUpperCase()
         .includes(searchPhrase.toUpperCase().trim().replace(/\s/g, ""))
     ) {
-      return <Item name={item.properties.name} />;
+      return <Item item={item} />;
     }
   };
 
