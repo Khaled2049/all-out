@@ -5,6 +5,7 @@ import {
   StyleSheet,
   FlatList,
   TouchableOpacity,
+  Modal,
 } from "react-native";
 import MapboxGL, { MarkerView, PointAnnotation } from "@rnmapbox/maps";
 import { useRoute } from "@react-navigation/native";
@@ -13,6 +14,7 @@ import * as Device from "expo-device";
 import { requestLocationPermission } from "../utils/helperMethods";
 import { useNavigation } from "@react-navigation/native";
 import Card from "./Card";
+import { Ionicons } from "@expo/vector-icons";
 
 MapboxGL.setAccessToken(
   "pk.eyJ1Ijoia2hhbGVkMjA0OCIsImEiOiJjbHJqbnI2azQwNWRyMmtraXlzdWR3N2xoIn0.25oYJMrELC1s9VPPA60ndA"
@@ -25,6 +27,7 @@ const Map = ({ data }) => {
   const { selectedTrail } = route.params || {};
   const [location, setLocation] = useState(null);
   const [loading, setLoading] = useState(false);
+
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -68,6 +71,11 @@ const Map = ({ data }) => {
     navigation.navigate("Trail Reports", { hike });
   };
 
+  const onSelectedHike = (hike) => {
+    setLocation(hike.geometry.coordinates);
+    camera.current.flyTo(hike.geometry.coordinates, 1000);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.topBox}>
@@ -82,7 +90,7 @@ const Map = ({ data }) => {
               id="marker"
               coordinate={selectedTrail.geometry.coordinates}
             >
-              <View style={styles.marker} />
+              <Ionicons name="trail-sign" size={24} color="black" />
             </MarkerView>
           )}
           {data.map((d) => (
@@ -91,12 +99,9 @@ const Map = ({ data }) => {
               id={d.id}
               title={d.properties.name}
               coordinate={d.geometry.coordinates}
-              onSelected={() => {
-                setLocation(d.geometry.coordinates);
-                return camera.current.flyTo(d.geometry.coordinates, 1000);
-              }}
+              onSelected={() => onSelectedHike(d)}
             >
-              <View style={styles.marker} />
+              <Ionicons name="trail-sign" size={12} color="black" />
             </PointAnnotation>
           ))}
         </MapboxGL.MapView>
