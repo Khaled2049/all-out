@@ -5,14 +5,14 @@
     "protection": "beta pending",
     "left_right_seq": "1",
     "mp_sector_id": "113905129",
-    "latitude": "42.12547",
+    "latitude": 42.12547,
     "route_name": "Monkey Swing",
     "first_ascent": "unknown",
     "location": "beta pending",
     "yds": "5.8",
     "parent_sector": "A: Sentinel",
     "mp_route_id": "115364306",
-    "longitude": "-90.15715"
+    "longitude": -90.15715
   },
   {
     "description": "..............",
@@ -20,14 +20,14 @@
     "protection": "gear or pads",
     "left_right_seq": "4",
     "mp_sector_id": "118216697",
-    "latitude": "46.67142",
+    "latitude": 46.67142,
     "route_name": "Brain Departments",
     "first_ascent": "unknown",
     "location": null,
     "yds": "5.11",
     "parent_sector": "Backside (aka Assland)",
     "mp_route_id": "118251300",
-    "longitude": "-88.73476"
+    "longitude": -88.73476
   },
   {
     "description": null,
@@ -35,14 +35,14 @@
     "protection": "None",
     "left_right_seq": "0",
     "mp_sector_id": "116538631",
-    "latitude": "41.21518",
+    "latitude": 41.21518,
     "route_name": "Oopma loopma Traverse",
     "first_ascent": "Recorded 2-16-19",
     "location": null,
     "yds": "V1+",
     "parent_sector": "Last Rock Standing",
     "mp_route_id": "116538647",
-    "longitude": "-81.69831"
+    "longitude": -81.69831
   },
   {
     "description": null,
@@ -50,14 +50,14 @@
     "protection": "pad and spotter might have been nice.",
     "left_right_seq": "999999",
     "mp_sector_id": "114552259",
-    "latitude": "43.68872",
+    "latitude": 43.68872,
     "route_name": "Puppy Love",
     "first_ascent": "Jon Marek",
     "location": null,
     "yds": "V3",
     "parent_sector": "Bridge Boulder",
     "mp_route_id": "106592524",
-    "longitude": "-96.5181"
+    "longitude": -96.5181
   },
   {
     "description": null,
@@ -65,14 +65,14 @@
     "protection": null,
     "left_right_seq": "1",
     "mp_sector_id": "105882894",
-    "latitude": "43.8427",
+    "latitude": 43.8427,
     "route_name": "Conn Route",
     "first_ascent": "Herb and Jan Conn",
     "location": "Icehouse-Aquarium saddle.",
     "yds": "5.6",
     "parent_sector": "Icehouse Rock",
     "mp_route_id": "105882899",
-    "longitude": "-103.5582"
+    "longitude": -103.5582
   },
   {
     "description": null,
@@ -80,14 +80,14 @@
     "protection": "4 bolts and #2 and #3 BD Camalots.",
     "left_right_seq": "0",
     "mp_sector_id": "105819752",
-    "latitude": "43.8477",
+    "latitude": 43.8477,
     "route_name": "Missing Arch",
     "first_ascent": "unknown",
     "location": null,
     "yds": "5.10a/b",
     "parent_sector": "Chillbain",
     "mp_route_id": "105819755",
-    "longitude": "-103.5668"
+    "longitude": -103.5668
   },
   {
     "description": null,
@@ -95,14 +95,14 @@
     "protection": "bouldering pad and spotter",
     "left_right_seq": "999999",
     "mp_sector_id": "111146024",
-    "latitude": "44.15489",
+    "latitude": 44.15489,
     "route_name": "Violins",
     "first_ascent": "unknown",
     "location": null,
     "yds": "V2",
     "parent_sector": "Violin Boulder",
     "mp_route_id": "105714806",
-    "longitude": "-103.46849"
+    "longitude": -103.46849
   },
   {
     "description": "one funky move with hidden holds",
@@ -110,14 +110,14 @@
     "protection": "bolts, anchors",
     "left_right_seq": "2",
     "mp_sector_id": "106087019",
-    "latitude": "42.2068",
+    "latitude": 42.2068,
     "route_name": "Empty Pockets",
     "first_ascent": "unknown",
     "location": "route on the right",
     "yds": "5.11c",
     "parent_sector": "Chicago Wall",
     "mp_route_id": "106087022",
-    "longitude": "-91.10475"
+    "longitude": -91.10475
   },
   {
     "description": "BEep boop bap!",
@@ -125,14 +125,14 @@
     "protection": "pads",
     "left_right_seq": "9",
     "mp_sector_id": "117156412",
-    "latitude": "41.73703",
+    "latitude": 41.73703,
     "route_name": "C - 008",
     "first_ascent": "unknown",
     "location": null,
     "yds": "V4-5",
     "parent_sector": "Centennial Park",
     "mp_route_id": "117216540",
-    "longitude": "-91.62431"
+    "longitude": -91.62431
   },
   {
     "description": "...............",
@@ -140,13 +140,13 @@
     "protection": "gear or pads",
     "left_right_seq": "5",
     "mp_sector_id": "118216697",
-    "latitude": "46.67142",
+    "latitude": 46.67142,
     "route_name": "Brain Compartments",
     "first_ascent": "unknown",
     "location": null,
     "yds": "5.11+",
     "parent_sector": "Backside (aka Assland)",
     "mp_route_id": "118251306",
-    "longitude": "-88.73476"
+    "longitude": -88.73476
   }
 ]

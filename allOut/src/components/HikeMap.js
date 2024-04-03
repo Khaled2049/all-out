@@ -20,7 +20,7 @@ MapboxGL.setAccessToken(
   "pk.eyJ1Ijoia2hhbGVkMjA0OCIsImEiOiJjbHJqbnI2azQwNWRyMmtraXlzdWR3N2xoIn0.25oYJMrELC1s9VPPA60ndA"
 );
 
-const Map = ({ data }) => {
+const HikeMap = ({ data }) => {
   const camera = useRef(null);
 
   const route = useRoute();
@@ -90,7 +90,8 @@ const Map = ({ data }) => {
               id="marker"
               coordinate={selectedTrail.geometry.coordinates}
             >
-              <Ionicons name="trail-sign" size={24} color="black" />
+              {/* <Ionicons name="trail-sign" size={12} color="black" /> */}
+              <View style={styles.marker} />
             </MarkerView>
           )}
           {data.map((d) => (
@@ -101,7 +102,8 @@ const Map = ({ data }) => {
               coordinate={d.geometry.coordinates}
               onSelected={() => onSelectedHike(d)}
             >
-              <Ionicons name="trail-sign" size={12} color="black" />
+              {/* <Ionicons name="trail-sign" size={12} color="black" /> */}
+              <View style={styles.marker} />
             </PointAnnotation>
           ))}
         </MapboxGL.MapView>
@@ -123,7 +125,7 @@ const Map = ({ data }) => {
   );
 };
 
-export default Map;
+export default HikeMap;
 
 const styles = StyleSheet.create({
   textStyle: {
