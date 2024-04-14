@@ -5,11 +5,23 @@ import {
   randomFloatBetween0And5,
   generateDifficulty,
 } from "../utils/helperMethods";
+import { images } from "../../data/images";
+
+console.log("Images", images);
 
 const Card = ({ item, onPress }) => {
+  const img_obj = images.filter((o) => {
+    return o["id"] == item?.route_name || o["id"] == item?.id;
+  })[0];
+
+  if (img_obj) {
+    img = img_obj["image"];
+  } else {
+    console.log("No image");
+  }
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
-      {/* <Image source={{ uri: imageSource }} style={styles.image} /> */}
+      <Image style={styles.image} source={img}></Image>
       <View style={styles.textContainer}>
         {item?.properties?.name && (
           <View>
@@ -52,8 +64,8 @@ const styles = StyleSheet.create({
     width: 350,
   },
   image: {
-    width: 80,
-    height: 80,
+    width: 70,
+    height: 70,
     borderRadius: 10,
   },
   textContainer: {
