@@ -20,3 +20,17 @@ export const requestLocationPermission = async () => {
     return false;
   }
 };
+export const randomFloatBetween0And5 = () => {
+  return (Math.random() * 5).toFixed(1);
+};
+export const generateDifficulty = () => {
+  const randomNumber = Math.random();
+
+  if (randomNumber < 0.33) {
+    return "Easy";
+  } else if (randomNumber < 0.67) {
+    return "Medium";
+  } else {
+    return "Hard";
+  }
+};

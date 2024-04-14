@@ -58,12 +58,7 @@ const ClimbMap = ({ data }) => {
   }, []);
 
   const renderClimb = ({ item }) => {
-    return (
-      <Card
-        title={item.route_name}
-        onPress={() => navigateToDetailScreen(item)}
-      />
-    );
+    return <Card item={item} onPress={() => navigateToDetailScreen(item)} />;
   };
 
   const navigateToDetailScreen = (climb) => {

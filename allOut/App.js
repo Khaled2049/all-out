@@ -8,7 +8,7 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import HomeScreen from "./src/screens/HomeScreen";
 import DetailScreen from "./src/screens/DetailScreen";
 import MapScreen from "./src/screens/MapScreen";
-import ClimbsScreen from "./src/screens/ClimbScreen";
+import ProfileScreen from "./src/screens/ProfileScreen";
 import SearchScreen from "./src/screens/SearchScreen";
 
 import { HikeContext } from "./src/Context/HikeContext";
@@ -87,7 +87,7 @@ const App = () => {
             />
             <Tab.Screen
               name="Profile"
-              component={ClimbsScreen}
+              component={ProfileScreen}
               options={{
                 tabBarLabel: "Profile",
                 tabBarIcon: ({ color, size }) => (

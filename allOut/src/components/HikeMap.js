@@ -59,12 +59,7 @@ const HikeMap = ({ data }) => {
   }, []);
 
   const renderHike = ({ item }) => {
-    return (
-      <Card
-        title={item.properties.name}
-        onPress={() => navigateToDetailScreen(item)}
-      />
-    );
+    return <Card item={item} onPress={() => navigateToDetailScreen(item)} />;
   };
   const navigateToDetailScreen = (hike) => {
     // Navigate to the detail screen with the selected climb data
@@ -142,7 +137,8 @@ const styles = StyleSheet.create({
   },
   bottomBox: {
     flex: 0.3,
-    backgroundColor: "lightgreen",
+    // position: "absolute",
+    // backgroundColor: "lightgreen",
     justifyContent: "center",
     alignItems: "center",
   },
