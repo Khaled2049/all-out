@@ -14,12 +14,7 @@ const List = ({ searchPhrase, setClicked, data }) => {
   const navigation = useNavigation();
 
   const Item = ({ item }) => {
-    return (
-      <Card
-        title={item.properties.name}
-        onPress={() => navigateToDetailScreen(item)}
-      />
-    );
+    return <Card item={item} onPress={() => navigateToDetailScreen(item)} />;
   };
 
   const renderItem = ({ item }) => {

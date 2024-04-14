@@ -5,7 +5,8 @@ import {
   randomFloatBetween0And5,
   generateDifficulty,
 } from "../utils/helperMethods";
-const Card = ({ imageSource, item, onPress }) => {
+
+const Card = ({ item, onPress }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
       {/* <Image source={{ uri: imageSource }} style={styles.image} /> */}
