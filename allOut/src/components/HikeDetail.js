@@ -7,8 +7,8 @@ const HikeDetail = ({ hike, img }) => {
       <View style={styles.imageContainer}>
         <Image style={styles.image} source={img}></Image>
       </View>
+      <Text style={styles.textStyle}>{hike.properties?.name}</Text>
       <View style={styles.detailContent}>
-        <Text style={styles.textStyle}>{hike.properties?.name}</Text>
         <Text style={styles.subHeading}>
           Manager: {hike.properties?.manager}
         </Text>
