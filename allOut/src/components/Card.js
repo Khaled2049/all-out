@@ -7,8 +7,6 @@ import {
 } from "../utils/helperMethods";
 import { images } from "../../data/images";
 
-console.log("Images", images);
-
 const Card = ({ item, onPress }) => {
   const img_obj = images.filter((o) => {
     return o["id"] == item?.route_name || o["id"] == item?.id;
