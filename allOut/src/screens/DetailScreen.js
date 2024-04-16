@@ -3,8 +3,8 @@ import { View, StyleSheet, Text, ScrollView } from "react-native";
 import Bag from "../components/Bag";
 import ClimbDetail from "../components/ClimbDetail";
 import HikeDetail from "../components/HikeDetail";
-import UserReviews from "../components/UserReviews";
 
+import UserReviews from "../components/UserReviews";
 import { images } from "./images";
 
 const bagItems = ["shoes", "chalk", "harness", "rope", "quickdraws"];
@@ -19,7 +19,7 @@ const DetailScreen = ({ route }) => {
     if (img_obj) {
       img = img_obj["image"];
       return (
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, position: "relative" }}>
           <View style={styles.topBox}>
             <ScrollView>
               <ClimbDetail climb={climb} img={img} />
@@ -27,7 +27,9 @@ const DetailScreen = ({ route }) => {
                 <Bag items={bagItems} />
               </View>
             </ScrollView>
-            <UserReviews />
+            <View style={styles.reviewContainer}>
+              <UserReviews />
+            </View>
           </View>
         </View>
       );
@@ -42,15 +44,17 @@ const DetailScreen = ({ route }) => {
     if (img_obj) {
       img = img_obj["image"];
       return (
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, position: "relative" }}>
           <View style={styles.topBox}>
             <ScrollView>
               <HikeDetail hike={hike} img={img} />
               <View style={styles.container}>
                 <Bag items={bagItems} />
               </View>
-              <UserReviews />
             </ScrollView>
+            <View style={styles.reviewContainer}>
+              <UserReviews />
+            </View>
           </View>
         </View>
       );
@@ -69,9 +73,11 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     paddingVertical: 20,
     paddingHorizontal: 10,
+    position: "relative",
+    marginBottom: 20,
   },
   topBox: {
-    // flex: 0.7,
+    // flex: 0.9,
     backgroundColor: "lightgreen",
     justifyContent: "center",
     alignItems: "center",
@@ -87,8 +93,11 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   reviewContainer: {
-    height: 200,
-    backgroundColor: "lightblue",
+    flex: 1,
+    position: "absolute",
+    top: 400,
+    height: 300,
+    width: "100%",
   },
 });
 

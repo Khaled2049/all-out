@@ -7,17 +7,34 @@ const HikeDetail = ({ hike, img }) => {
       <View style={styles.imageContainer}>
         <Image style={styles.image} source={img}></Image>
       </View>
-      <Text>Name: {hike.properties?.name}</Text>
-      <Text>Manager: {hike.properties?.manager}</Text>
-      <Text>Fee: {hike.properties?.fee}</Text>
-      <Text>Type: {hike.properties?.type}</Text>
+      <View style={styles.detailContent}>
+        <Text style={styles.textStyle}>{hike.properties?.name}</Text>
+        <Text style={styles.subHeading}>
+          Manager: {hike.properties?.manager}
+        </Text>
+        <Text style={styles.subHeading}>Fee: {hike.properties?.fee}</Text>
+        <Text style={styles.subHeading}>Type: {hike.properties?.type}</Text>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   textStyle: {
-    marginVertical: 10, // Adjust margin as needed
+    marginVertical: 10,
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: "center",
+    textDecorationLine: "underline",
+  },
+  subHeading: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  detailContent: {
+    borderRadius: 10,
+    padding: 10,
+    backgroundColor: "#f9f9f9",
   },
   container: {
     padding: 16,

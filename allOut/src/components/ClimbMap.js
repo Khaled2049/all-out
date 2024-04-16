@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
   },
   bottomBox: {
     flex: 0.3,
-    backgroundColor: "lightgreen",
+    // backgroundColor: "lightgreen",
     justifyContent: "center",
     alignItems: "center",
   },

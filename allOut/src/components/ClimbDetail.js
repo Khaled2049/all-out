@@ -7,23 +7,39 @@ const ClimbDetail = ({ climb, img }) => {
       <View style={styles.imageContainer}>
         <Image style={styles.image} source={img}></Image>
       </View>
-      <Text>Name: {climb?.route_name}</Text>
-      <Text>Description: {climb?.description}</Text>
-      <Text>First Ascent: {climb?.first_ascent}</Text>
-      <Text>Location: {climb?.location}</Text>
-      <Text>Protection: {climb?.protection}</Text>
+      <Text style={styles.textStyle}>{climb?.route_name}</Text>
+      <View style={styles.detailContent}>
+        <Text style={styles.subHeading}>Description: {climb?.description}</Text>
+        <Text style={styles.subHeading}>
+          First Ascent: {climb?.first_ascent}
+        </Text>
+        <Text style={styles.subHeading}>Location: {climb?.location}</Text>
+        <Text style={styles.subHeading}>Protection: {climb?.protection}</Text>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   textStyle: {
-    marginVertical: 10, // Adjust margin as needed
+    marginVertical: 10,
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: "center",
+    textDecorationLine: "underline",
+  },
+  subHeading: {
+    fontSize: 16,
+    marginVertical: 5,
+    fontWeight: "bold",
+  },
+  detailContent: {
+    borderRadius: 10,
+    padding: 10,
+    backgroundColor: "#f9f9f9",
   },
   container: {
     padding: 16,
-    height: Dimensions.get("window").height,
-    width: Dimensions.get("window").width,
   },
   row: {
     borderBottomWidth: 1,
