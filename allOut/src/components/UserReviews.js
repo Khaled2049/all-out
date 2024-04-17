@@ -16,6 +16,7 @@ import React, {
 } from "react";
 import BottomSheet from "@gorhom/bottom-sheet";
 import { GestureHandlerRootView, FlatList } from "react-native-gesture-handler";
+import Colors from "./Colors";
 
 const UserReviews = () => {
   const navigation = useNavigation();
@@ -60,7 +61,7 @@ const UserReviews = () => {
                 onChangeText={(text) => setReviewText(text)}
                 multiline
               />
-              <Button title="Submit" onPress={handleAddReview} />
+              <Button title="Submit" color={Colors.orange} onPress={handleAddReview} />
             </View>
             <View style={{ padding: 10 }}>
               <Text style={styles.heading}>Reviews</Text>
@@ -96,6 +97,9 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: "row",
     marginBottom: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 12
   },
   contentContainer: {
     flex: 1,
