@@ -1,10 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-import {
-  randomFloatBetween0And5,
-  generateDifficulty,
-} from "../utils/helperMethods";
+import { generateDifficulty } from "../utils/helperMethods";
 import { images } from "../../data/images";
 import Colors from "./Colors";
 
