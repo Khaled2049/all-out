@@ -1,0 +1,242 @@
+[
+  {
+    "type": "Feature",
+    "id": "trailheads_cotrex02192019.1",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -105.68364311,
+        39.77252787
+      ]
+    },
+    "geometry_name": "the_geom",
+    "properties": {
+      "ogc_fid": 1,
+      "feature_id": 61258,
+      "place_id": 50,
+      "name": "Bill Moore Lake/Empire Loop Trailhead",
+      "alt_name": "",
+      "type": "Trailhead",
+      "bathrooms": "no",
+      "fee": "no",
+      "water": "no",
+      "manager": "Clear Creek County"
+    }
+  },
+  {
+    "type": "Feature",
+    "id": "trailheads_cotrex02192019.2",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -105.73227576,
+        39.69430301
+      ]
+    },
+    "geometry_name": "the_geom",
+    "properties": {
+      "ogc_fid": 2,
+      "feature_id": 61255,
+      "place_id": 47,
+      "name": "Argentine Central Grade Trailhead",
+      "alt_name": "",
+      "type": "Trailhead",
+      "bathrooms": "no",
+      "fee": "no",
+      "water": "no",
+      "manager": "Clear Creek County"
+    }
+  },
+  {
+    "type": "Feature",
+    "id": "trailheads_cotrex02192019.3",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -105.69942576,
+        39.68786504
+      ]
+    },
+    "geometry_name": "the_geom",
+    "properties": {
+      "ogc_fid": 3,
+      "feature_id": 61254,
+      "place_id": 46,
+      "name": "Silverdale Trailhead",
+      "alt_name": "",
+      "type": "Trailhead",
+      "bathrooms": "no",
+      "fee": "no",
+      "water": "no",
+      "manager": "Town of Georgetown"
+    }
+  },
+  {
+    "type": "Feature",
+    "id": "trailheads_cotrex02192019.4",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -105.70192796,
+        39.68275019
+      ]
+    },
+    "geometry_name": "the_geom",
+    "properties": {
+      "ogc_fid": 4,
+      "feature_id": 61253,
+      "place_id": 45,
+      "name": "Waldorf Trailhead",
+      "alt_name": "",
+      "type": "Trailhead",
+      "bathrooms": "no",
+      "fee": "no",
+      "water": "no",
+      "manager": "Clear Creek County"
+    }
+  },
+  {
+    "type": "Feature",
+    "id": "trailheads_cotrex02192019.5",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -105.68389855,
+        39.73697264
+      ]
+    },
+    "geometry_name": "the_geom",
+    "properties": {
+      "ogc_fid": 5,
+      "feature_id": 61252,
+      "place_id": 44,
+      "name": "Silver Creek Trailhead",
+      "alt_name": "",
+      "type": "Trailhead",
+      "bathrooms": "no",
+      "fee": "no",
+      "water": "no",
+      "manager": "Clear Creek County"
+    }
+  },
+  {
+    "type": "Feature",
+    "id": "trailheads_cotrex02192019.6",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -105.63348691,
+        39.76291943
+      ]
+    },
+    "geometry_name": "the_geom",
+    "properties": {
+      "ogc_fid": 6,
+      "feature_id": 61251,
+      "place_id": 43,
+      "name": "Silver Creek Trailhead",
+      "alt_name": "",
+      "type": "Trailhead",
+      "bathrooms": "no",
+      "fee": "no",
+      "water": "no",
+      "manager": "Clear Creek County"
+    }
+  },
+  {
+    "type": "Feature",
+    "id": "trailheads_cotrex02192019.7",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -105.72549092,
+        39.69794064
+      ]
+    },
+    "geometry_name": "the_geom",
+    "properties": {
+      "ogc_fid": 7,
+      "feature_id": 61250,
+      "place_id": 42,
+      "name": "7:30 Mine Road Trailhead",
+      "alt_name": "",
+      "type": "Trailhead",
+      "bathrooms": "no",
+      "fee": "no",
+      "water": "no",
+      "manager": "Clear Creek County"
+    }
+  },
+  {
+    "type": "Feature",
+    "id": "trailheads_cotrex02192019.8",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -108.98404074,
+        38.67844958
+      ]
+    },
+    "geometry_name": "the_geom",
+    "properties": {
+      "ogc_fid": 8,
+      "feature_id": 202865,
+      "place_id": 21552,
+      "name": "Gateway Trailhead",
+      "alt_name": "",
+      "type": "Trailhead",
+      "bathrooms": "",
+      "fee": "",
+      "water": "",
+      "manager": "BLM Grand Junction Field Office"
+    }
+  },
+  {
+    "type": "Feature",
+    "id": "trailheads_cotrex02192019.9",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -105.40678645,
+        39.74309488
+      ]
+    },
+    "geometry_name": "the_geom",
+    "properties": {
+      "ogc_fid": 9,
+      "feature_id": 61245,
+      "place_id": 37,
+      "name": "Oxbow Trailhead",
+      "alt_name": "",
+      "type": "Trailhead",
+      "bathrooms": "no",
+      "fee": "no",
+      "water": "no",
+      "manager": "Clear Creek County"
+    }
+  },
+  {
+    "type": "Feature",
+    "id": "trailheads_cotrex02192019.10",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -107.43574124,
+        39.14769246
+      ]
+    },
+    "geometry_name": "the_geom",
+    "properties": {
+      "ogc_fid": 10,
+      "feature_id": 1823198,
+      "place_id": 19458,
+      "name": "Clear Fork Trailhead",
+      "alt_name": "",
+      "type": "Trailhead",
+      "bathrooms": "no",
+      "fee": "no",
+      "water": "no",
+      "manager": "USFS Paonia Ranger District"
+    }
+  }
+]

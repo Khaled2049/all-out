@@ -32,6 +32,21 @@ export interface NexusGenObjects {
     token: string; // String!
     user: NexusGenRootTypes['User']; // User!
   }
+  Climb: { // root type
+    description: string; // String!
+    first_ascent: string; // String!
+    id: number; // Int!
+    latitude: string; // String!
+    left_right_seq: string; // String!
+    location: string; // String!
+    longitude: string; // String!
+    mp_route_id: string; // String!
+    mp_sector_id: string; // String!
+    parent_sector: string; // String!
+    protection: string; // String!
+    route_name: string; // String!
+    yds: string; // String!
+  }
   Link: { // root type
     description: string; // String!
     id: number; // Int!
@@ -39,6 +54,16 @@ export interface NexusGenObjects {
   }
   Mutation: {};
   Query: {};
+  Trail: { // root type
+    bathrooms: string; // String!
+    fee: string; // String!
+    id: number; // Int!
+    latitude: string; // String!
+    longitude: string; // String!
+    manager: string; // String!
+    name: string; // String!
+    water: string; // String!
+  }
   User: { // root type
     email: string; // String!
     id: number; // Int!
@@ -61,6 +86,21 @@ export interface NexusGenFieldTypes {
     token: string; // String!
     user: NexusGenRootTypes['User']; // User!
   }
+  Climb: { // field return type
+    description: string; // String!
+    first_ascent: string; // String!
+    id: number; // Int!
+    latitude: string; // String!
+    left_right_seq: string; // String!
+    location: string; // String!
+    longitude: string; // String!
+    mp_route_id: string; // String!
+    mp_sector_id: string; // String!
+    parent_sector: string; // String!
+    protection: string; // String!
+    route_name: string; // String!
+    yds: string; // String!
+  }
   Link: { // field return type
     description: string; // String!
     id: number; // Int!
@@ -73,7 +113,19 @@ export interface NexusGenFieldTypes {
     signup: NexusGenRootTypes['AuthPayload']; // AuthPayload!
   }
   Query: { // field return type
+    climbs: NexusGenRootTypes['Climb'][]; // [Climb!]!
     feed: NexusGenRootTypes['Link'][]; // [Link!]!
+    trails: NexusGenRootTypes['Trail'][]; // [Trail!]!
+  }
+  Trail: { // field return type
+    bathrooms: string; // String!
+    fee: string; // String!
+    id: number; // Int!
+    latitude: string; // String!
+    longitude: string; // String!
+    manager: string; // String!
+    name: string; // String!
+    water: string; // String!
   }
   User: { // field return type
     email: string; // String!
@@ -88,6 +140,21 @@ export interface NexusGenFieldTypeNames {
     token: 'String'
     user: 'User'
   }
+  Climb: { // field return type name
+    description: 'String'
+    first_ascent: 'String'
+    id: 'Int'
+    latitude: 'String'
+    left_right_seq: 'String'
+    location: 'String'
+    longitude: 'String'
+    mp_route_id: 'String'
+    mp_sector_id: 'String'
+    parent_sector: 'String'
+    protection: 'String'
+    route_name: 'String'
+    yds: 'String'
+  }
   Link: { // field return type name
     description: 'String'
     id: 'Int'
@@ -100,7 +167,19 @@ export interface NexusGenFieldTypeNames {
     signup: 'AuthPayload'
   }
   Query: { // field return type name
+    climbs: 'Climb'
     feed: 'Link'
+    trails: 'Trail'
+  }
+  Trail: { // field return type name
+    bathrooms: 'String'
+    fee: 'String'
+    id: 'Int'
+    latitude: 'String'
+    longitude: 'String'
+    manager: 'String'
+    name: 'String'
+    water: 'String'
   }
   User: { // field return type name
     email: 'String'

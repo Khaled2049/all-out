@@ -7,6 +7,22 @@ type AuthPayload {
   user: User!
 }
 
+type Climb {
+  description: String!
+  first_ascent: String!
+  id: Int!
+  latitude: String!
+  left_right_seq: String!
+  location: String!
+  longitude: String!
+  mp_route_id: String!
+  mp_sector_id: String!
+  parent_sector: String!
+  protection: String!
+  route_name: String!
+  yds: String!
+}
+
 type Link {
   description: String!
   id: Int!
@@ -21,7 +37,20 @@ type Mutation {
 }
 
 type Query {
+  climbs: [Climb!]!
   feed: [Link!]!
+  trails: [Trail!]!
+}
+
+type Trail {
+  bathrooms: String!
+  fee: String!
+  id: Int!
+  latitude: String!
+  longitude: String!
+  manager: String!
+  name: String!
+  water: String!
 }
 
 type User {
