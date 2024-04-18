@@ -3,6 +3,7 @@ import { View, StyleSheet, Text, ScrollView } from "react-native";
 import Bag from "../components/Bag";
 import ClimbDetail from "../components/ClimbDetail";
 import HikeDetail from "../components/HikeDetail";
+import Colors from "../components/Colors";
 
 import UserReviews from "../components/UserReviews";
 import { images } from "./images";
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
   },
   topBox: {
     // flex: 0.9,
-    backgroundColor: "lightgreen",
+    backgroundColor: Colors.brown,
     justifyContent: "center",
     alignItems: "center",
   },

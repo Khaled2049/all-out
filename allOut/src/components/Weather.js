@@ -88,10 +88,10 @@ const Weather = ({ lat, lon }) => {
 
       <View style={styles.details}>
         <Text style={styles.temperature}>
-          {Math.round(weatherData.main.temp)}°C
+          {Math.round(weatherData.main.temp)}°F
         </Text>
         <Text style={styles.detailsText}>
-          Feels like: {Math.round(weatherData.main.feels_like)}°C
+          Feels like: {Math.round(weatherData.main.feels_like)}°F
         </Text>
         <Text style={styles.detailsText}>
           Wind: {weatherData.wind.speed} m/s

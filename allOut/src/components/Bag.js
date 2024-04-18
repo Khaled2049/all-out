@@ -1,9 +1,10 @@
 import { View, Text, StyleSheet } from "react-native";
+import Colors from "./Colors";
 
 const Bag = ({ items }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Check out these commonly packed items</Text>
+      <Text style={styles.heading}>Check out these commonly packed items:</Text>
       {items.map((item, index) => (
         <View key={index} style={styles.box}>
           <Text style={styles.text}>{item}</Text>
@@ -36,8 +37,13 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: 20,
     fontWeight: "bold",
+    fontStyle: "italic",
     textAlign: "center",
     marginVertical: 10,
+    color: Colors.black,
+    textShadowColor: Colors.darkBlue,
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 2,
   },
 });
 

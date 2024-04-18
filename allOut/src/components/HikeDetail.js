@@ -1,62 +1,75 @@
-import { View, StyleSheet, Text, Image, Dimensions } from "react-native";
 import React from "react";
+import { View, StyleSheet, Text, Image } from "react-native";
+import Colors from "./Colors"; // Import your color palette
 
 const HikeDetail = ({ hike, img }) => {
   return (
     <View style={styles.container}>
-      <View style={styles.imageContainer}>
-        <Image style={styles.image} source={img}></Image>
+      <View style={styles.header}>
+        <Text style={styles.textStyle}>
+          {hike.properties?.name}
+        </Text>
       </View>
-      <Text style={styles.textStyle}>{hike.properties?.name}</Text>
+      <View style={styles.imageContainer}>
+        <Image style={styles.image} source={img} />
+      </View>
       <View style={styles.detailContent}>
         <Text style={styles.subHeading}>
           Manager: {hike.properties?.manager}
         </Text>
-        <Text style={styles.subHeading}>Fee: {hike.properties?.fee}</Text>
-        <Text style={styles.subHeading}>Type: {hike.properties?.type}</Text>
+        <Text style={styles.subHeading}>
+          Fee: {hike.properties?.fee}
+        </Text>
+        <Text style={styles.subHeading}>
+          Type: {hike.properties?.type}
+        </Text>
       </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: Colors.darkBlue,
+    padding: 16,
+    marginBottom: 20,
+  },
+  header: {
+    backgroundColor: Colors.olive,
+    padding: 10,
+    borderRadius: 4,
+    marginBottom: 10,
+  },
+  content: {
+    flexDirection: "row",
+  },
   textStyle: {
-    marginVertical: 10,
     fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
     textDecorationLine: "underline",
+    color: Colors.white,
   },
   subHeading: {
     fontSize: 16,
     fontWeight: "bold",
+    color: Colors.white,
   },
   detailContent: {
-    borderRadius: 10,
+    flex: 1,
     padding: 10,
-    backgroundColor: "#f9f9f9",
-  },
-  container: {
-    padding: 16,
-  },
-  row: {
-    borderBottomWidth: 1,
-    borderBottomColor: "#ccc",
-    paddingVertical: 12,
-  },
-  trailheadName: {
-    fontSize: 16,
-    fontWeight: "bold",
+    backgroundColor: Colors.olive,
+    borderRadius: 4,
   },
   imageContainer: {
+    width: "100%",
     height: 400,
-    textAlign: "center",
+    marginBottom: 10,
   },
   image: {
     flex: 1,
     height: "100%",
     width: "100%",
-    objectFit: "cover",
   },
 });
 
