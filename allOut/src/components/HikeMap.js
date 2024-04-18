@@ -14,6 +14,7 @@ import * as Device from "expo-device";
 import { requestLocationPermission } from "../utils/helperMethods";
 import { useNavigation } from "@react-navigation/native";
 import Card from "./Card";
+import Colors from "./Colors"
 import { Ionicons } from "@expo/vector-icons";
 
 MapboxGL.setAccessToken(
@@ -128,6 +129,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+    backgroundColor: Colors.darkBlue
   },
   topBox: {
     flex: 0.7,

@@ -6,6 +6,7 @@ import {
   generateDifficulty,
 } from "../utils/helperMethods";
 import { images } from "../../data/images";
+import Colors from "./Colors"
 
 const Card = ({ item, onPress }) => {
   const img_obj = images.filter((o) => {
@@ -17,40 +18,75 @@ const Card = ({ item, onPress }) => {
   } else {
     console.log("No image");
   }
-  return (
-    <TouchableOpacity onPress={onPress} style={styles.container}>
-      <Image style={styles.image} source={img}></Image>
-      <View style={styles.textContainer}>
-        {item?.properties?.name && (
+
+  
+  if (item?.properties) // hike
+  {
+    const diff = generateDifficulty();
+    const hikeStarCount = diff === "Easy" ? 1 : diff === "Medium" ? 2 : 3;
+    let hikeStars = Array.from({ length: hikeStarCount }, (v, i) => i);
+
+    return (
+      <TouchableOpacity onPress={onPress} style={styles.container}>
+        <Image style={styles.image} source={img}></Image>
+        <View style={styles.textContainer}>
           <View>
             <Text style={styles.title}>{item.properties.name}</Text>
-            <Text>
-              <AntDesign name="star" size={24} color="black" />{" "}
-              {generateDifficulty()} | {Math.floor(Math.random() * 46) + 5}{" "}
-              Miles
+            <Text style={styles.cardtext}>
+              {"Difficulty: "}
+              {hikeStars.map((index) => (
+                <AntDesign key={index} name="star" size={15} color={Colors.orange} />
+              ))}
+              {" (" + diff + ")"}
+            </Text>
+            <Text style={styles.cardtext}>
+              {Math.floor(Math.random() * 46) + 5}{" "}Miles
             </Text>
           </View>
-        )}
-        {item?.route_name && (
+        </View>
+      </TouchableOpacity>
+    );
+  }
+  if (item?.route_name) // climb
+  {
+    const diff = item.yds;
+    const climbStarCount = 
+    /^5\.9|^5\.10/.test(diff) || /^V[3-5]/.test(diff)
+    ? 2
+    : /^5\.[0-8]$|^V[0-2]/.test(diff)
+    ? 1
+    : 3;
+    const climbStars = Array.from({ length: climbStarCount }, (v, i) => i);
+    const difficulty = climbStarCount === 1 ? "Easy" : climbStarCount === 2 ? "Medium" : "Hard";
+    return (
+      <TouchableOpacity onPress={onPress} style={styles.container}>
+        <Image style={styles.image} source={img}></Image>
+        <View style={styles.textContainer}>
           <View>
             <Text style={styles.title}>{item?.route_name}</Text>
-            <Text>
-              Grade: {item.yds} |{" "}
-              <AntDesign name="star" size={24} color="black" />{" "}
-              {randomFloatBetween0And5()}
+            <Text style={styles.cardtext}>
+              {"Difficulty: "}
+              {climbStars.map((index) => (
+                <AntDesign key={index} name="star" size={15} color={Colors.orange} />
+              ))}
+              {" (" + difficulty + ")"}
+            </Text>
+            <Text style={styles.cardtext}>
+              {"Grade: " + diff}
             </Text>
           </View>
-        )}
-      </View>
-    </TouchableOpacity>
-  );
+        </View>
+      </TouchableOpacity>
+    );
+  }
+  
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "row",
-    backgroundColor: "#ffffff",
+    backgroundColor: Colors.olive,
     borderRadius: 10,
     margin: 10,
     padding: 10,
@@ -74,6 +110,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     width: 250,
+    color: Colors.white,
+  },
+  cardtext: {
+    color: Colors.lightGray,
   },
 });
 

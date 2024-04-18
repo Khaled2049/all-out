@@ -3,6 +3,8 @@ import { View, StyleSheet, Text, ScrollView } from "react-native";
 import Bag from "../components/Bag";
 import ClimbDetail from "../components/ClimbDetail";
 import HikeDetail from "../components/HikeDetail";
+import Colors from "../components/Colors";
+
 import UserReviews from "../components/UserReviews";
 import { images } from "./images";
 import Recommendation from "../components/Recommendation";
@@ -20,11 +22,11 @@ const DetailScreen = ({ route }) => {
       img = img_obj["image"];
       return (
         <ScrollView contentContainerStyle={styles.scrollView}>
+          <ClimbDetail climb={climb} img={img} />
           <View style={styles.topBox}>
-            <ClimbDetail climb={climb} img={img} />
             <View style={styles.container}>
-              <Recommendation />
               <Bag items={bagItems} />
+              <Recommendation />
             </View>
             <View style={styles.reviewContainer}>
               <UserReviews />
@@ -45,12 +47,12 @@ const DetailScreen = ({ route }) => {
       return (
         <View style={{ flex: 1, position: "relative" }}>
           <ScrollView contentContainerStyle={styles.scrollView}>
+            <HikeDetail hike={hike} img={img} />
             <View style={styles.topBox}>
-              <HikeDetail hike={hike} img={img} />
               <View style={styles.container}>
                 <Bag items={bagItems} />
+                <Recommendation />
               </View>
-              <Recommendation />
             </View>
           </ScrollView>
           <View style={styles.reviewContainer}>
@@ -72,15 +74,14 @@ const DetailScreen = ({ route }) => {
 
 const styles = StyleSheet.create({
   scrollView: {
-    flexGrow: 1,
-    marginBottom: 200,
+    // flexGrow: 1,
+    // marginBottom: 200,
   },
   container: {
     flexGrow: 1,
-
     paddingVertical: 20,
     paddingHorizontal: 10,
-    position: "relative",
+    // position: "relative",
     marginBottom: 20,
   },
   page: {
@@ -89,7 +90,7 @@ const styles = StyleSheet.create({
     minHeight: "100%",
   },
   topBox: {
-    backgroundColor: "lightgreen",
+    backgroundColor: Colors.brown,
     justifyContent: "center",
     alignItems: "center",
     minHeight: "100%",

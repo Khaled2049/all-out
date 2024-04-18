@@ -6,6 +6,8 @@ import Climbs from "../../data/mac.json";
 
 import HikeMap from "../components/HikeMap";
 import ClimbMap from "../components/ClimbMap";
+import Colors from "../components/Colors";
+
 const MapScreen = () => {
   const hikes = useContext(HikeContext);
   const [isHikeMapVisible, setIsHikeMapVisible] = useState(true);
@@ -38,6 +40,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     position: "relative",
+    backgroundColor: Colors.darkBlue
   },
   toggleButton: {
     position: "absolute",
