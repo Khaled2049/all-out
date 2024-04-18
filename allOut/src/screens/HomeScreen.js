@@ -21,13 +21,14 @@ function HomeScreen(props) {
   const [clicked, setClicked] = useState(false);
 
   return (
-    <ImageBackground
-      source={require("../../assets/dark_background.png")}
-      style={{
-        height: Dimensions.get("window").height,
-        width: Dimensions.get("window").width,
-      }}
-    >
+    <View>
+      <ImageBackground
+        source={require("../../assets/dark_background.png")}
+        style={{
+          height: Dimensions.get("window").height,
+          width: Dimensions.get("window").width,
+        }}
+      >
       <Weather lon={-106.10864} lat={37.75306} />
       <View style={styles.root}>
         <Search
@@ -37,13 +38,14 @@ function HomeScreen(props) {
           setClicked={setClicked}
         />
 
-        <List
-          searchPhrase={searchPhrase}
-          setClicked={setClicked}
-          data={hikes}
-        />
-      </View>
-    </ImageBackground>
+          <List
+            searchPhrase={searchPhrase}
+            setClicked={setClicked}
+            data={hikes}
+          />
+        </View>
+      </ImageBackground>
+    </View>
   );
 }
 
