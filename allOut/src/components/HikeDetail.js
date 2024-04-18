@@ -49,17 +49,11 @@ const styles = StyleSheet.create({
     textAlign: "center",
     textDecorationLine: "underline",
     color: Colors.white,
-    textShadowColor: Colors.orange,
-    textShadowOffset: { width: -1, height: 1 },
-    textShadowRadius: 3,
   },
   subHeading: {
     fontSize: 16,
     fontWeight: "bold",
     color: Colors.white,
-    textShadowColor: Colors.orange,
-    textShadowOffset: { width: -1, height: 1 },
-    textShadowRadius: 3,
   },
   detailContent: {
     flex: 1,

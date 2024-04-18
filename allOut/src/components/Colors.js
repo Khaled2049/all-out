@@ -6,8 +6,8 @@ const Colors = {
     olive: '#496934',
     brown: '#B65E22',
     white: '#FFFFFF',
-    lightGray: "#EEEEEE",
-    gray: "#AAAAAAA",
+    lightGray: "#CCCCCC",
+    gray: "#888888",
   };
   
   export default Colors;

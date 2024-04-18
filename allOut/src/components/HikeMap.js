@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: Colors.gray
+    backgroundColor: Colors.darkBlue
   },
   topBox: {
     flex: 0.7,

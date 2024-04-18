@@ -34,14 +34,14 @@ const Card = ({ item, onPress }) => {
         <View style={styles.textContainer}>
           <View>
             <Text style={styles.title}>{item.properties.name}</Text>
-            <Text>
+            <Text style={styles.cardtext}>
               {"Difficulty: "}
               {hikeStars.map((index) => (
                 <AntDesign key={index} name="star" size={15} color={Colors.orange} />
               ))}
               {" (" + diff + ")"}
             </Text>
-            <Text>
+            <Text style={styles.cardtext}>
               {Math.floor(Math.random() * 46) + 5}{" "}Miles
             </Text>
           </View>
@@ -55,7 +55,7 @@ const Card = ({ item, onPress }) => {
     const climbStarCount = 
     /^5\.9|^5\.10/.test(diff) || /^V[3-5]/.test(diff)
     ? 2
-    : /^5\.[0-8]|^V[0-2]/.test(diff)
+    : /^5\.[0-8]$|^V[0-2]/.test(diff)
     ? 1
     : 3;
     const climbStars = Array.from({ length: climbStarCount }, (v, i) => i);
@@ -66,14 +66,14 @@ const Card = ({ item, onPress }) => {
         <View style={styles.textContainer}>
           <View>
             <Text style={styles.title}>{item?.route_name}</Text>
-            <Text>
+            <Text style={styles.cardtext}>
               {"Difficulty: "}
               {climbStars.map((index) => (
                 <AntDesign key={index} name="star" size={15} color={Colors.orange} />
               ))}
               {" (" + difficulty + ")"}
             </Text>
-            <Text>
+            <Text style={styles.cardtext}>
               {"Grade: " + diff}
             </Text>
           </View>
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "row",
-    backgroundColor: "#ffffff",
+    backgroundColor: Colors.olive,
     borderRadius: 10,
     margin: 10,
     padding: 10,
@@ -112,6 +112,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     width: 250,
+    color: Colors.white,
+  },
+  cardtext: {
+    color: Colors.lightGray,
   },
 });
 
