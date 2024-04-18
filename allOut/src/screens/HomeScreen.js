@@ -9,6 +9,27 @@ import {
 import React, { useContext, useState } from "react";
 import Weather from "../components/Weather";
 
+import { useQuery, gql } from "@apollo/client";
+
+const GET_CLIMBS = gql`
+  {
+    climbs {
+      description
+      first_ascent
+      id
+      latitude
+      left_right_seq
+      location
+      longitude
+      mp_route_id
+      mp_sector_id
+      parent_sector
+      protection
+      route_name
+      yds
+    }
+  }
+`;
 import { HikeContext } from "../Context/HikeContext";
 
 import Search from "../components/Search";
@@ -16,6 +37,7 @@ import List from "../components/List";
 
 function HomeScreen(props) {
   const hikes = useContext(HikeContext);
+  const { data } = useQuery(GET_CLIMBS);
 
   const [searchPhrase, setSearchPhrase] = useState("");
   const [clicked, setClicked] = useState(false);
@@ -29,14 +51,14 @@ function HomeScreen(props) {
           width: Dimensions.get("window").width,
         }}
       >
-      <Weather lon={-106.10864} lat={37.75306} />
-      <View style={styles.root}>
-        <Search
-          clicked={clicked}
-          searchPhrase={searchPhrase}
-          setSearchPhrase={setSearchPhrase}
-          setClicked={setClicked}
-        />
+        <Weather lon={-106.10864} lat={37.75306} />
+        <View style={styles.root}>
+          <Search
+            clicked={clicked}
+            searchPhrase={searchPhrase}
+            setSearchPhrase={setSearchPhrase}
+            setClicked={setClicked}
+          />
 
           <List
             searchPhrase={searchPhrase}
