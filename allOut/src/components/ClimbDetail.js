@@ -6,9 +6,7 @@ const ClimbDetail = ({ climb, img }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.textStyle}>
-          {climb.route_name}
-        </Text>
+        <Text style={styles.textStyle}>{climb.route_name}</Text>
       </View>
       <View style={styles.imageContainer}>
         <Image style={styles.image} source={img} />
@@ -29,7 +27,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: Colors.darkBlue,
     padding: 16,
-    marginBottom: 20,
   },
   header: {
     backgroundColor: Colors.olive,

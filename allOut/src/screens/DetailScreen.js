@@ -7,6 +7,7 @@ import Colors from "../components/Colors";
 
 import UserReviews from "../components/UserReviews";
 import { images } from "./images";
+import Recommendation from "../components/Recommendation";
 
 const bagItems = ["shoes", "chalk", "harness", "rope", "quickdraws"];
 
@@ -21,16 +22,17 @@ const DetailScreen = ({ route }) => {
       img = img_obj["image"];
       return (
         <View style={{ flex: 1, position: "relative" }}>
-          <View style={styles.topBox}>
-            <ScrollView>
-              <ClimbDetail climb={climb} img={img} />
+          <ScrollView contentContainerStyle={styles.scrollView}>
+            <ClimbDetail climb={climb} img={img} />
+            <View style={styles.topBox}>
               <View style={styles.container}>
                 <Bag items={bagItems} />
+                <Recommendation />
               </View>
-            </ScrollView>
-            <View style={styles.reviewContainer}>
-              <UserReviews />
             </View>
+          </ScrollView>
+          <View style={styles.reviewContainer}>
+            <UserReviews />
           </View>
         </View>
       );
@@ -46,16 +48,17 @@ const DetailScreen = ({ route }) => {
       img = img_obj["image"];
       return (
         <View style={{ flex: 1, position: "relative" }}>
-          <View style={styles.topBox}>
-            <ScrollView>
-              <HikeDetail hike={hike} img={img} />
+          <ScrollView contentContainerStyle={styles.scrollView}>
+            <HikeDetail hike={hike} img={img} />
+            <View style={styles.topBox}>
               <View style={styles.container}>
                 <Bag items={bagItems} />
+                <Recommendation />
               </View>
-            </ScrollView>
-            <View style={styles.reviewContainer}>
-              <UserReviews />
             </View>
+          </ScrollView>
+          <View style={styles.reviewContainer}>
+            <UserReviews />
           </View>
         </View>
       );
@@ -63,35 +66,36 @@ const DetailScreen = ({ route }) => {
   }
 
   return (
-    <View style={styles.page}>
-      <Text>Select a climb or Hike to get details</Text>
-    </View>
+    <ScrollView contentContainerStyle={styles.scrollView}>
+      <View style={styles.page}>
+        <Text>Select a climb or Hike to get details</Text>
+      </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
+  scrollView: {
+    // flexGrow: 1,
+    // marginBottom: 200,
+  },
   container: {
     flexGrow: 1,
     paddingVertical: 20,
     paddingHorizontal: 10,
-    position: "relative",
+    // position: "relative",
     marginBottom: 20,
   },
+  page: {
+    justifyContent: "center",
+    alignItems: "center",
+    minHeight: "100%",
+  },
   topBox: {
-    // flex: 0.9,
     backgroundColor: Colors.brown,
     justifyContent: "center",
     alignItems: "center",
-  },
-  content: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  text: {
-    fontSize: 16,
-    textAlign: "center",
-    marginBottom: 20,
+    minHeight: "100%",
   },
   reviewContainer: {
     flex: 1,
@@ -99,6 +103,8 @@ const styles = StyleSheet.create({
     top: 400,
     height: 300,
     width: "100%",
+
+    paddingBottom: 90,
   },
 });
 

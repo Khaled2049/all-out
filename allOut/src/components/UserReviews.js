@@ -21,7 +21,10 @@ import Colors from "./Colors";
 const UserReviews = () => {
   const navigation = useNavigation();
   const [reviewText, setReviewText] = useState("");
-  const [reviews, setReviews] = useState([]);
+  const [reviews, setReviews] = useState([
+    "This was a great trail!",
+    "I loved it!",
+  ]);
 
   const handleAddReview = () => {
     if (reviewText.trim() === "") {
@@ -39,9 +42,7 @@ const UserReviews = () => {
   const snapPoints = useMemo(() => ["25%", "100%"], []);
 
   // callbacks
-  const handleSheetChanges = useCallback((index) => {
-    console.log("handleSheetChanges", index);
-  }, []);
+  const handleSheetChanges = useCallback((index) => {}, []);
 
   return (
     <View style={styles.container}>
@@ -61,7 +62,11 @@ const UserReviews = () => {
                 onChangeText={(text) => setReviewText(text)}
                 multiline
               />
-              <Button title="Submit" color={Colors.orange} onPress={handleAddReview} />
+              <Button
+                title="Submit"
+                color={Colors.orange}
+                onPress={handleAddReview}
+              />
             </View>
             <View style={{ padding: 10 }}>
               <Text style={styles.heading}>Reviews</Text>
@@ -97,9 +102,9 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: "row",
     marginBottom: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 12
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: 12,
   },
   contentContainer: {
     flex: 1,

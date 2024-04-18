@@ -23,7 +23,7 @@ const ProfileScreen = () => {
     setName("");
     setEmail("");
     setSport("");
-    console.log(profiles);
+
     setIsMember(true);
   };
 
@@ -59,7 +59,12 @@ const ProfileScreen = () => {
       {isMember ? (
         <Table profiles={profiles} /> // Render Table if the user is a member
       ) : (
-        <Button style={styles.button} title="Join Now" color={Colors.orange} onPress={saveProfile} />
+        <Button
+          style={styles.button}
+          title="Join Now"
+          color={Colors.orange}
+          onPress={saveProfile}
+        />
       )}
       <Button
         style={styles.button}
@@ -100,8 +105,8 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   button: {
-    marginBottom: 10
-  }
+    marginBottom: 10,
+  },
 });
 
 export default ProfileScreen;

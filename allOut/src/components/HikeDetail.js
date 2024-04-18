@@ -6,9 +6,7 @@ const HikeDetail = ({ hike, img }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.textStyle}>
-          {hike.properties?.name}
-        </Text>
+        <Text style={styles.textStyle}>{hike.properties?.name}</Text>
       </View>
       <View style={styles.imageContainer}>
         <Image style={styles.image} source={img} />
@@ -17,12 +15,8 @@ const HikeDetail = ({ hike, img }) => {
         <Text style={styles.subHeading}>
           Manager: {hike.properties?.manager}
         </Text>
-        <Text style={styles.subHeading}>
-          Fee: {hike.properties?.fee}
-        </Text>
-        <Text style={styles.subHeading}>
-          Type: {hike.properties?.type}
-        </Text>
+        <Text style={styles.subHeading}>Fee: {hike.properties?.fee}</Text>
+        <Text style={styles.subHeading}>Type: {hike.properties?.type}</Text>
       </View>
     </View>
   );
@@ -32,7 +26,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: Colors.darkBlue,
     padding: 16,
-    marginBottom: 20,
   },
   header: {
     backgroundColor: Colors.olive,
