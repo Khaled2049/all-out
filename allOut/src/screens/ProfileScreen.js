@@ -23,7 +23,7 @@ const ProfileScreen = () => {
     setName("");
     setEmail("");
     setSport("");
-    console.log(profiles);
+
     setIsMember(true);
   };
 

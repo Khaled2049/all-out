@@ -21,18 +21,20 @@ const DetailScreen = ({ route }) => {
     if (img_obj) {
       img = img_obj["image"];
       return (
-        <ScrollView contentContainerStyle={styles.scrollView}>
-          <ClimbDetail climb={climb} img={img} />
-          <View style={styles.topBox}>
-            <View style={styles.container}>
-              <Bag items={bagItems} />
-              <Recommendation />
+        <View style={{ flex: 1, position: "relative" }}>
+          <ScrollView contentContainerStyle={styles.scrollView}>
+            <ClimbDetail climb={climb} img={img} />
+            <View style={styles.topBox}>
+              <View style={styles.container}>
+                <Bag items={bagItems} />
+                <Recommendation />
+              </View>
             </View>
-            <View style={styles.reviewContainer}>
-              <UserReviews />
-            </View>
+          </ScrollView>
+          <View style={styles.reviewContainer}>
+            <UserReviews />
           </View>
-        </ScrollView>
+        </View>
       );
     }
   }

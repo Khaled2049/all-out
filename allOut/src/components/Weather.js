@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet } from "react-native";
-// Assuming you're using Expo
 import axios from "axios";
 import { FontAwesome } from "@expo/vector-icons";
 
@@ -11,10 +10,8 @@ const getWeatherIconName = (iconCode) => {
       return "sun-o";
     case "02d":
     case "02n":
-      return "cloud";
     case "03d":
     case "03n":
-      return "cloud";
     case "04d":
     case "04n":
       return "cloud";
@@ -80,28 +77,32 @@ const Weather = ({ lat, lon }) => {
 
   return (
     <View style={styles.container}>
-      <FontAwesome name={weatherIconName} size={70} color="#333" />
+      <View style={styles.row}>
+        <View style={styles.desc}>
+          <FontAwesome name={weatherIconName} size={70} color="#333" />
 
-      <Text style={styles.description}>
-        {weatherData.weather[0].description}
-      </Text>
+          <Text style={styles.description}>
+            {weatherData.weather[0].description}
+          </Text>
+        </View>
 
-      <View style={styles.details}>
-        <Text style={styles.temperature}>
-          {Math.round(weatherData.main.temp)}°F
-        </Text>
-        <Text style={styles.detailsText}>
-          Feels like: {Math.round(weatherData.main.feels_like)}°F
-        </Text>
-        <Text style={styles.detailsText}>
-          Wind: {weatherData.wind.speed} m/s
-        </Text>
-        <Text style={styles.detailsText}>
-          Humidity: {weatherData.main.humidity}%
-        </Text>
-        <Text style={styles.detailsText}>
-          Pressure: {weatherData.main.pressure} hPa
-        </Text>
+        <View style={styles.details}>
+          <Text style={styles.temperature}>
+            {Math.round(weatherData.main.temp)}°F
+          </Text>
+          <Text style={styles.detailsText}>
+            Feels like: {Math.round(weatherData.main.feels_like)}°F
+          </Text>
+          <Text style={styles.detailsText}>
+            Wind: {weatherData.wind.speed} m/s
+          </Text>
+          <Text style={styles.detailsText}>
+            Humidity: {weatherData.main.humidity}%
+          </Text>
+          <Text style={styles.detailsText}>
+            Pressure: {weatherData.main.pressure} hPa
+          </Text>
+        </View>
       </View>
     </View>
   );
@@ -112,6 +113,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
+  },
+  row: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-around",
+    width: "100%",
+  },
+  desc: {
+    alignItems: "center",
   },
   description: {
     textTransform: "uppercase",

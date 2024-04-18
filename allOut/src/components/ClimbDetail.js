@@ -27,7 +27,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: Colors.darkBlue,
     padding: 16,
-    marginBottom: 20,
   },
   header: {
     backgroundColor: Colors.olive,

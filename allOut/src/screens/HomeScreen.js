@@ -29,14 +29,14 @@ function HomeScreen(props) {
           width: Dimensions.get("window").width,
         }}
       >
-      <Weather lon={-106.10864} lat={37.75306} />
-      <View style={styles.root}>
-        <Search
-          clicked={clicked}
-          searchPhrase={searchPhrase}
-          setSearchPhrase={setSearchPhrase}
-          setClicked={setClicked}
-        />
+        <Weather lon={-106.10864} lat={37.75306} />
+        <View style={styles.root}>
+          <Search
+            clicked={clicked}
+            searchPhrase={searchPhrase}
+            setSearchPhrase={setSearchPhrase}
+            setClicked={setClicked}
+          />
 
           <List
             searchPhrase={searchPhrase}
