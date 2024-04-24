@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, TextInput, Button, StyleSheet, Image } from "react-native";
 import Table from "../components/Table";
 import Colors from "../components/Colors";
+import Login from "../components/Login";
 
 const ProfileScreen = () => {
   const [name, setName] = useState("");
@@ -29,6 +30,9 @@ const ProfileScreen = () => {
 
   return (
     <View style={styles.container}>
+      <View>
+        <Login />
+      </View>
       {!isMember && (
         <View style={styles.box}>
           <Image

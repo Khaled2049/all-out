@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Text, ScrollView } from "react-native";
+import { View, StyleSheet, Text, ScrollView, Button } from "react-native";
 import Bag from "../components/Bag";
 import ClimbDetail from "../components/ClimbDetail";
 import HikeDetail from "../components/HikeDetail";
@@ -8,6 +8,7 @@ import Colors from "../components/Colors";
 import UserReviews from "../components/UserReviews";
 import { images } from "./images";
 import Recommendation from "../components/Recommendation";
+import Buddy from "../components/Buddy";
 
 const bagItems = ["shoes", "chalk", "harness", "rope", "quickdraws"];
 
@@ -24,6 +25,7 @@ const DetailScreen = ({ route }) => {
         <View style={{ flex: 1, position: "relative" }}>
           <ScrollView contentContainerStyle={styles.scrollView}>
             <ClimbDetail climb={climb} img={img} />
+            <Buddy climb={climb} />
             <View style={styles.topBox}>
               <View style={styles.container}>
                 <Bag items={bagItems} />
