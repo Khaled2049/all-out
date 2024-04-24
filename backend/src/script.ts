@@ -7,14 +7,13 @@ const prisma = new PrismaClient();
 function transformHikeData(data: any) {
   return data.map((item: any) => {
     return {
-      id: item.properties.feature_id,
-      name: item.properties.name,
-      latitude: item.geometry.coordinates[1].toString(),
-      longitude: item.geometry.coordinates[0].toString(),
-      fee: item.properties.fee,
-      water: item.properties.water,
-      bathrooms: item.properties.bathrooms,
-      manager: item.properties.manager,
+      name: item.properties.name || "",
+      latitude: item.geometry.coordinates[1].toString() || "",
+      longitude: item.geometry.coordinates[0].toString() || "",
+      fee: item.properties.fee || "",
+      water: item.properties.water || "",
+      bathrooms: item.properties.bathrooms || "",
+      manager: item.properties.manager || "",
     };
   });
 }
@@ -55,15 +54,23 @@ async function main() {
   //   },
   // });
 
-  const data = mapToClimbingRoute(climbs);
+  // const data = mapToClimbingRoute(climbs);
   // console.log(data);
 
-  await prisma.climb.createMany({
+  // await prisma.climb.createMany({
+  //   data,
+  // });
+
+  const data = transformHikeData(hikes);
+
+  await prisma.trail.createMany({
     data,
   });
 
-  const allClimbs = await prisma.climb.findMany();
-  console.log(allClimbs);
+  // const allClimbs = await prisma.climb.findMany();
+  // console.log(allClimbs);
+  const allTrails = await prisma.trail.findMany();
+  console.log(allTrails);
 }
 
 // 4
