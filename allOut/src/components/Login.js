@@ -11,9 +11,10 @@ import { useNavigation } from "@react-navigation/native";
 import { useMutation, gql } from "@apollo/client";
 
 const AUTH_TOKEN = "auth-token";
+import Colors from "../components/Colors";
 
 const Login = () => {
-  const navigate = useNavigation();
+  const navigation = useNavigation();
   const [formState, setFormState] = useState({
     login: true,
     email: "",
@@ -48,8 +49,9 @@ const Login = () => {
     },
     onCompleted: ({ login }) => {
       //   localStorage.setItem(AUTH_TOKEN, login.token);
+      console.log(login);
       console.log("Logged in!");
-      // navigate("/");
+      navigation.navigate("Home");
     },
   });
 
@@ -62,54 +64,64 @@ const Login = () => {
     onCompleted: ({ signup }) => {
       //   localStorage.setItem(AUTH_TOKEN, signup.token);
       console.log("Signed up!");
-      // navigate("/");
+      navigation.navigate("Home");
     },
   });
 
   return (
-    <View>
-      <Text>{formState.login ? "Login" : "Sign Up"}</Text>
-      <View>
-        {!formState.login && (
-          <TextInput
-            value={formState.name}
-            onChangeText={(e) =>
-              setFormState({
-                ...formState,
-                name: e,
-              })
-            }
-            placeholder="Your name"
-          />
-        )}
+    <View style={styles.box}>
+      {/* <Image
+        source={{ uri: "https://via.placeholder.com/150" }} // Placeholder image URL
+        style={styles.profileImage}
+      /> */}
+      <Text style={styles.title}>{formState.login ? "Login" : "Sign Up"}</Text>
+      {!formState.login && (
         <TextInput
-          value={formState.email}
+          autoCapitalize="none"
+          style={styles.input}
+          value={formState.name}
           onChangeText={(e) =>
             setFormState({
               ...formState,
-              email: e,
+              name: e,
             })
           }
-          placeholder="Your email address"
+          placeholder="Your name"
         />
-        <TextInput
-          value={formState.password}
-          onChangeText={(e) =>
-            setFormState({
-              ...formState,
-              password: e,
-            })
-          }
-          type="password"
-          placeholder="Choose a safe password"
-        />
-      </View>
+      )}
+      <TextInput
+        autoCapitalize="none"
+        style={styles.input}
+        value={formState.email}
+        onChangeText={(e) =>
+          setFormState({
+            ...formState,
+            email: e,
+          })
+        }
+        placeholder="Your email address"
+      />
+      <TextInput
+        autoCapitalize="none"
+        style={styles.input}
+        value={formState.password}
+        onChangeText={(e) =>
+          setFormState({
+            ...formState,
+            password: e,
+          })
+        }
+        type="password"
+        placeholder="Choose a safe password"
+      />
+
+      <TouchableOpacity
+        style={styles.btn}
+        onPress={() => (formState.login ? login() : signup())}
+      >
+        {formState.login ? <Text>Login</Text> : <Text>Sign Up</Text>}
+      </TouchableOpacity>
       <View>
-        <TouchableOpacity
-          onPress={() => (formState.login ? login() : signup())}
-        >
-          {formState.login ? <Text>login</Text> : <Text>create account</Text>}
-        </TouchableOpacity>
         <TouchableOpacity
           onPress={(e) =>
             setFormState({
@@ -119,14 +131,62 @@ const Login = () => {
           }
         >
           {formState.login ? (
-            <Text>need to create an account?</Text>
+            <Text style={styles.subheading}>Need to create an account?</Text>
           ) : (
-            <Text>already have an account?</Text>
+            <Text style={styles.subheading}>Already have an account?</Text>
           )}
         </TouchableOpacity>
       </View>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  box: { width: "100%", alignItems: "center", justifyContent: "center" },
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: 20,
+    backgroundColor: Colors.teal,
+  },
+  title: {
+    fontSize: 24,
+    marginBottom: 20,
+  },
+  subheading: {
+    fontSize: 18,
+    marginBottom: 20,
+  },
+
+  input: {
+    height: 40,
+    width: "100%",
+    borderColor: Colors.gray,
+    borderWidth: 1,
+    marginBottom: 20,
+    paddingHorizontal: 10,
+    backgroundColor: Colors.lightGray,
+  },
+  profileImage: {
+    width: 150,
+    height: 150,
+    borderRadius: 75, // Half of width and height for circular shape
+    marginBottom: 20,
+  },
+  btn: {
+    // position: "absolute",
+    // top: 20,
+    // right: 20,
+    alignSelf: "center", // Center horizontally
+    backgroundColor: Colors.brown,
+    width: 100,
+    padding: 10,
+    borderRadius: 20,
+    alignItems: "center",
+    marginBottom: 20,
+    width: "auto",
+  },
+});
 
 export default Login;

@@ -30,52 +30,7 @@ const ProfileScreen = () => {
 
   return (
     <View style={styles.container}>
-      <View>
-        <Login />
-      </View>
-      {!isMember && (
-        <View style={styles.box}>
-          <Image
-            source={{ uri: "https://via.placeholder.com/150" }} // Placeholder image URL
-            style={styles.profileImage}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Name"
-            value={name}
-            onChangeText={(text) => setName(text)}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Email"
-            value={email}
-            onChangeText={(text) => setEmail(text)}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Favorite Sport"
-            value={sport}
-            onChangeText={(text) => setSport(text)}
-            keyboardType="numeric"
-          />
-        </View>
-      )}
-      {isMember ? (
-        <Table profiles={profiles} /> // Render Table if the user is a member
-      ) : (
-        <Button
-          style={styles.button}
-          title="Join Now"
-          color={Colors.orange}
-          onPress={saveProfile}
-        />
-      )}
-      <Button
-        style={styles.button}
-        title={isMember ? "Join Now" : "Already a Member"} // Toggle button text based on membership status
-        onPress={toggleMembership}
-        color={Colors.orange}
-      />
+      <Login />
     </View>
   );
 };
