@@ -15,7 +15,7 @@ const ProfileScreen = (props) => {
 
   return (
     <View style={styles.container}>
-      {!token ? (
+      {token ? (
         <View>
           <View>
             <Button

@@ -15,7 +15,7 @@ const AUTH_TOKEN = "auth-token";
 import Colors from "../components/Colors";
 
 const Login = () => {
-  const { SetToken } = useContext(MyContext);
+  const { SetToken, SetUser } = useContext(MyContext);
   const navigation = useNavigation();
   const [formState, setFormState] = useState({
     login: true,
@@ -40,6 +40,11 @@ const Login = () => {
     mutation LoginMutation($email: String!, $password: String!) {
       login(email: $email, password: $password) {
         token
+        user {
+          email
+          id
+          name
+        }
       }
     }
   `;
@@ -51,9 +56,10 @@ const Login = () => {
     },
     onCompleted: ({ login }) => {
       //   localStorage.setItem(AUTH_TOKEN, login.token);
-      console.log(login);
+      console.log("userlogin", login);
       if (login.token) {
         SetToken(login.token);
+        SetUser(login.user);
       }
       console.log("Logged in!");
       navigation.navigate("Home");
