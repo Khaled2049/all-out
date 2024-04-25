@@ -8,13 +8,15 @@ const MyProvider = ({ children }) => {
   const [token, setToken] = useState("");
   const [hikes, setHikes] = useState(hikeData);
   const [climbs, setClimbs] = useState(climbData);
-  const [isMember, setIsMember] = useState(true);
+  const [groups, setGroups] = useState([]);
 
   const valueToShare = {
+    groups,
     token,
     hikes,
     climbs,
     SetToken: (token) => setToken(token),
+    AddGroup: (group) => setGroups([...groups, group]),
   };
 
   return (

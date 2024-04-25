@@ -8,7 +8,14 @@ const Buddy = ({ climb }) => {
 
   const findBuddy = () => {
     console.log("Find a buddy to climb with!");
-    navigation.navigate("Profile", { climb });
+    navigation.navigate("Join Group", {
+      params: {
+        screen: "Join Group",
+        params: {
+          climb: climb,
+        },
+      },
+    });
   };
 
   return (
