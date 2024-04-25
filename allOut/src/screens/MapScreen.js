@@ -1,15 +1,14 @@
 import React, { useContext, useState } from "react";
 import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
 
-import { HikeContext } from "../Context/HikeContext";
-import Climbs from "../../data/mac.json";
+import MyContext from "../Context/MyContext";
 
 import HikeMap from "../components/HikeMap";
 import ClimbMap from "../components/ClimbMap";
 import Colors from "../components/Colors";
 
 const MapScreen = () => {
-  const hikes = useContext(HikeContext);
+  const { hikes, climbs } = useContext(MyContext);
   const [isHikeMapVisible, setIsHikeMapVisible] = useState(true);
 
   const toggleMap = () => {
@@ -22,7 +21,7 @@ const MapScreen = () => {
         {isHikeMapVisible ? (
           <HikeMap data={hikes} />
         ) : (
-          <ClimbMap data={Climbs} />
+          <ClimbMap data={climbs} />
         )}
       </View>
       <TouchableOpacity onPress={toggleMap} style={styles.toggleButton}>
@@ -40,7 +39,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     position: "relative",
-    backgroundColor: Colors.darkBlue
+    backgroundColor: Colors.darkBlue,
   },
   toggleButton: {
     position: "absolute",

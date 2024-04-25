@@ -6,14 +6,16 @@ import {
   StyleSheet,
   Image,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { useMutation, gql } from "@apollo/client";
+import MyContext from "../Context/MyContext";
 
 const AUTH_TOKEN = "auth-token";
 import Colors from "../components/Colors";
 
 const Login = () => {
+  const { SetToken } = useContext(MyContext);
   const navigation = useNavigation();
   const [formState, setFormState] = useState({
     login: true,
@@ -50,6 +52,9 @@ const Login = () => {
     onCompleted: ({ login }) => {
       //   localStorage.setItem(AUTH_TOKEN, login.token);
       console.log(login);
+      if (login.token) {
+        SetToken(login.token);
+      }
       console.log("Logged in!");
       navigation.navigate("Home");
     },
