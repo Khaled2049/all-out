@@ -15,10 +15,10 @@ const styles = StyleSheet.create({
   box: { width: "100%", alignItems: "center" },
   container: {
     flex: 1,
-    justifyContent: "center",
+    paddingTop: 50,
     alignItems: "center",
     paddingHorizontal: 20,
-    backgroundColor: Colors.teal,
+    backgroundColor: Colors.loginBG,
   },
 });
 export default Signup;

@@ -7,10 +7,11 @@ import {
 } from "react-native";
 import React, { useState, useContext } from "react";
 import Colors from "../components/Colors";
-
+import { useNavigation } from "@react-navigation/native";
 import MyContext from "../Context/MyContext";
 
 const CreateGroupScreen = () => {
+  const navigation = useNavigation();
   const { AddGroup, groups } = useContext(MyContext);
   const createId = () => {
     return Math.random().toString(36).substr(2, 9);
@@ -33,6 +34,7 @@ const CreateGroupScreen = () => {
     });
     console.log("Creating Group: ", formState);
     AddGroup(formState);
+    navigation.navigate("Join Group");
   };
 
   return (

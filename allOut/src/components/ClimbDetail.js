@@ -12,7 +12,7 @@ const ClimbDetail = ({ climb, img }) => {
         <Image style={styles.image} source={img} />
       </View>
       <View style={styles.detailContent}>
-        <Text style={styles.subHeading}>Description: {climb?.description}</Text>
+        <Text style={styles.subHeading}>{climb?.description}</Text>
         <Text style={styles.subHeading}>
           First Ascent: {climb?.first_ascent}
         </Text>
@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     color: Colors.white,
+    marginBottom: 10,
   },
   detailContent: {
     flex: 1,

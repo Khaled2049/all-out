@@ -81,10 +81,11 @@ const Login = () => {
 
   return (
     <View style={styles.box}>
-      {/* <Image
-        source={{ uri: "https://via.placeholder.com/150" }} // Placeholder image URL
+      <Image
+        // source={{ uri: "https://via.placeholder.com/150" }} // Placeholder image URL
+        source={require("../../assets/splash.png")} // Placeholder image URL
         style={styles.profileImage}
-      /> */}
+      />
       <Text style={styles.title}>{formState.login ? "Login" : "Sign Up"}</Text>
       {!formState.login && (
         <TextInput
@@ -122,7 +123,7 @@ const Login = () => {
             password: e,
           })
         }
-        type="password"
+        secureTextEntry
         placeholder="Choose a safe password"
       />
 

@@ -1,14 +1,14 @@
 [
   {
-    "description": "beta pending",
+    "description": "'Monkey Swing' is an exhilarating climbing route located in the breathtaking A: Sentinel sector. This route offers a thrilling mix of technical challenges and scenic views, making it a must-try for climbers seeking a memorable ascent.",
     "id": "79e9da07-e5a7-4db0-8683-47893f211ca1",
-    "protection": "beta pending",
+    "protection": "Adequate protection with a standard rack of cams and nuts is recommended for 'Monkey Swing,' especially in the crack sections and during the swinging maneuver'",
     "left_right_seq": "1",
     "mp_sector_id": "113905129",
     "latitude": 42.12547,
     "route_name": "Monkey Swing",
-    "first_ascent": "unknown",
-    "location": "beta pending",
+    "first_ascent": "Jon Marek",
+    "location": "Backside (aka Assland)",
     "yds": "5.8",
     "parent_sector": "A: Sentinel",
     "mp_route_id": "115364306",

@@ -1,10 +1,16 @@
 import React, { useState, useContext } from "react";
-import { View, Text, Button, StyleSheet, TextInput } from "react-native";
-import Table from "../components/Table";
+import {
+  View,
+  Text,
+  Button,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
+
 import Colors from "../components/Colors";
-import Login from "../components/Login";
+
 import MyContext from "../Context/MyContext";
-import Contact from "../components/Contact";
 
 const ProfileScreen = (props) => {
   const { token } = useContext(MyContext);
@@ -18,16 +24,20 @@ const ProfileScreen = (props) => {
       {token ? (
         <View>
           <View>
-            <Button
-              title="Create Group"
+            <TouchableOpacity
               onPress={() => props.navigation.navigate("Create Group")}
-            ></Button>
+              style={styles.btn}
+            >
+              <Text style={styles.btnText}>Create Group</Text>
+            </TouchableOpacity>
           </View>
           <View>
-            <Button
-              title="Join Group"
+            <TouchableOpacity
               onPress={() => props.navigation.navigate("Join Group")}
-            ></Button>
+              style={styles.btn}
+            >
+              <Text style={styles.btnText}>Join Group</Text>
+            </TouchableOpacity>
           </View>
         </View>
       ) : (
@@ -73,17 +83,14 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   btn: {
-    // position: "absolute",
-    // top: 20,
-    // right: 20,
-    alignSelf: "center", // Center horizontally
-    backgroundColor: Colors.brown,
-    width: 100,
+    backgroundColor: Colors.orange,
     padding: 10,
-    borderRadius: 20,
+    borderRadius: 5,
     alignItems: "center",
     marginBottom: 20,
-    width: "auto",
+  },
+  btnText: {
+    color: "white",
   },
 });
 
